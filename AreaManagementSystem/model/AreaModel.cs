@@ -16,6 +16,9 @@ namespace AreaManagement.model
             _totalArea = totalarea;
             _name = name;
         }
+        public AreaModel()
+        {
+        }
 
         public double TotalArea {  get { return _totalArea; } set {  _totalArea = value; } }
         public string Name {  get { return _name; } set { _name = value; } }

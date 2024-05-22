@@ -1,4 +1,7 @@
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using AreaManagement.Controller;
+using AreaManagement.model;
 
 namespace AreaTest
 {
@@ -25,28 +28,28 @@ namespace AreaTest
         public void TestGetTriangleArea()
         {
             Triangle triangle = new Triangle(2);
-            Assert.AreEqual(triangle.GetArea, 1);
+            Assert.AreEqual(triangle.GetArea(), 1);
         }
 
         [TestMethod]
         public void TestDoubleGetTriangleArea()
         {
             Triangle triangle = new Triangle(1);
-            Assert.AreEqual(triangle.GetArea, 0.5);
+            Assert.AreEqual(triangle.GetArea(), 0.5);
         }
 
         [TestMethod]
         public void TestGetQuadrilareralArea()
         {
             Quadrilareral triangle = new Quadrilareral(2);
-            Assert.AreEqual(triangle.GetArea, 1);
+            Assert.AreEqual(triangle.GetArea(), 1);
         }
 
         [TestMethod]
         public void TestDoubleQuadrilareralArea()
         {
             Quadrilareral triangle = new Quadrilareral(1);
-            Assert.AreEqual(triangle.GetArea, 0.5);
+            Assert.AreEqual(triangle.GetArea(), 0.5);
         }
     }
 }
