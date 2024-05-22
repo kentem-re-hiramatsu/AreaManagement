@@ -8,6 +8,11 @@ namespace AreaManagement.model
 {
     public class AreaListModel
     {
-        private List<AreaModel> _areaList = new List<AreaModel>();
+        public List<AreaModel> areaList = new List<AreaModel>();
+
+        public List<AreaModel> GetAreaList()
+        {
+            return areaList;
+        }
     }
 }

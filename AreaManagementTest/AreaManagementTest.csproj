@@ -56,9 +56,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AreaManagement\AreaManagement2.csproj">
-      <Project>{04aec2af-0898-46cd-983a-9bd2e9ec2615}</Project>
-      <Name>AreaManagement2</Name>
+    <ProjectReference Include="..\AreaManagementSystem\AreaManagementSystem.csproj">
+      <Project>{91766287-9205-47c1-81e8-dcad72441878}</Project>
+      <Name>AreaManagementSystem</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

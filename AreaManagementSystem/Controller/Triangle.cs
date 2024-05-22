@@ -16,7 +16,7 @@ namespace AreaManagement.Controller
         }
         public override void SetArea()
         {
-            this.area = this.sideLength * this.sideLength / 2;
+            area =  sideLength * sideLength / 2;
         }
     }
 }
