@@ -55,6 +55,7 @@
     </Compile>
     <Compile Include="Model\Quadrilareal.cs" />
     <Compile Include="Model\Shape.cs" />
+    <Compile Include="Model\Trapezoid.cs" />
     <Compile Include="Model\Triangle.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

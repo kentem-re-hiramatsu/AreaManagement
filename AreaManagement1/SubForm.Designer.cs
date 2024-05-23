@@ -29,17 +29,23 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.QuadRazio = new System.Windows.Forms.RadioButton();
             this.TriangleRazio = new System.Windows.Forms.RadioButton();
+            this.QuadRazio = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.OkButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
+            this.TrapezoidRazio = new System.Windows.Forms.RadioButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.TrapezoidRazio);
             this.groupBox1.Controls.Add(this.TriangleRazio);
             this.groupBox1.Controls.Add(this.QuadRazio);
             this.groupBox1.Location = new System.Drawing.Point(32, 25);
@@ -49,28 +55,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "種類";
             // 
-            // QuadRazio
-            // 
-            this.QuadRazio.AutoSize = true;
-            this.QuadRazio.Checked = true;
-            this.QuadRazio.Location = new System.Drawing.Point(19, 29);
-            this.QuadRazio.Name = "QuadRazio";
-            this.QuadRazio.Size = new System.Drawing.Size(59, 16);
-            this.QuadRazio.TabIndex = 0;
-            this.QuadRazio.TabStop = true;
-            this.QuadRazio.Text = "四角形";
-            this.QuadRazio.UseVisualStyleBackColor = true;
-            // 
             // TriangleRazio
             // 
             this.TriangleRazio.AutoSize = true;
-            this.TriangleRazio.Location = new System.Drawing.Point(113, 29);
+            this.TriangleRazio.Location = new System.Drawing.Point(72, 29);
             this.TriangleRazio.Name = "TriangleRazio";
             this.TriangleRazio.Size = new System.Drawing.Size(59, 16);
             this.TriangleRazio.TabIndex = 1;
             this.TriangleRazio.TabStop = true;
             this.TriangleRazio.Text = "三角形";
             this.TriangleRazio.UseVisualStyleBackColor = true;
+            // 
+            // QuadRazio
+            // 
+            this.QuadRazio.AutoSize = true;
+            this.QuadRazio.Checked = true;
+            this.QuadRazio.Location = new System.Drawing.Point(6, 29);
+            this.QuadRazio.Name = "QuadRazio";
+            this.QuadRazio.Size = new System.Drawing.Size(59, 16);
+            this.QuadRazio.TabIndex = 0;
+            this.QuadRazio.TabStop = true;
+            this.QuadRazio.Text = "四角形";
+            this.QuadRazio.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -87,10 +93,12 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(128, 19);
             this.textBox1.TabIndex = 2;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // OkButton
             // 
-            this.OkButton.Location = new System.Drawing.Point(32, 153);
+            this.OkButton.Enabled = false;
+            this.OkButton.Location = new System.Drawing.Point(32, 201);
             this.OkButton.Name = "OkButton";
             this.OkButton.Size = new System.Drawing.Size(75, 45);
             this.OkButton.TabIndex = 3;
@@ -100,7 +108,7 @@
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(157, 153);
+            this.CancelButton.Location = new System.Drawing.Point(157, 201);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 45);
             this.CancelButton.TabIndex = 4;
@@ -108,11 +116,59 @@
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
+            // TrapezoidRazio
+            // 
+            this.TrapezoidRazio.AutoSize = true;
+            this.TrapezoidRazio.Location = new System.Drawing.Point(147, 29);
+            this.TrapezoidRazio.Name = "TrapezoidRazio";
+            this.TrapezoidRazio.Size = new System.Drawing.Size(47, 16);
+            this.TrapezoidRazio.TabIndex = 2;
+            this.TrapezoidRazio.TabStop = true;
+            this.TrapezoidRazio.Text = "台形";
+            this.TrapezoidRazio.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(32, 144);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 12);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "上底の長さ";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(30, 173);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(59, 12);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "下底の長さ";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(104, 144);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(128, 19);
+            this.textBox2.TabIndex = 7;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(104, 170);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(128, 19);
+            this.textBox3.TabIndex = 8;
+            // 
             // SubForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(271, 210);
+            this.ClientSize = new System.Drawing.Size(289, 258);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.OkButton);
             this.Controls.Add(this.textBox1);
@@ -137,6 +193,11 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button OkButton;
         private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.RadioButton TrapezoidRazio;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
     }
 }
 

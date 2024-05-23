@@ -33,6 +33,7 @@ namespace AreaManagement1
             {
                 UpdateView();
             }
+            DeleteButtonChange();
         }
 
         public void UpdateView()
@@ -59,7 +60,18 @@ namespace AreaManagement1
                 int selectedIndex = listView1.SelectedItems[0].Index;
                 shapeMana.RemoveShapeAtIndex(selectedIndex);
                 UpdateView();
+                DeleteButtonChange();
             }
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DeleteButtonChange();
+        }
+
+        public void DeleteButtonChange()
+        {
+            DeleteButton.Enabled = listView1.SelectedItems.Count > 0;
         }
     }
 }

@@ -19,7 +19,7 @@ namespace AreaManagement.Model
 
         public override void SetArea()
         {
-            Area = Math.Round((Math.Sqrt(3) / 4 * Math.Pow(_sideLength, 2)),4);
+            Area = Math.Round((Math.Sqrt(3) / 4 * Math.Pow(_sideLength, 2)), 3);
         }
     }
 }
