@@ -1,4 +1,5 @@
 ﻿using AreaManagement.Controller;
+using ChangeForm;
 using Subform;
 using System;
 using System.Collections.Generic;
@@ -77,12 +78,20 @@ namespace AreaManagement1
 
         private void ChangeButton_Click(object sender, EventArgs e)
         {
-            SubForm subfrom = new SubForm(shapeMana);
-            if (DialogResult.OK == subfrom.ShowDialog())
+            int selectedIndex = 0;
+
+            if (listView1.SelectedItems.Count > 0)
+            {
+                DeleteAndChangeButtonChange();
+                selectedIndex = listView1.SelectedItems[0].Index;
+            }
+
+            ChangeFrom changeFrom = new ChangeFrom(shapeMana, selectedIndex);
+
+            if (DialogResult.OK == changeFrom.ShowDialog())
             {
                 UpdateView();
             }
-            DeleteAndChangeButtonChange();
         }
     }
 }

@@ -30,5 +30,10 @@ namespace AreaManagement.Controller
         {
             _shapeList.RemoveAt(index);
         }
+
+        public void ChangeShape(Shape shape, int index)
+        {
+            _shapeList[index] = shape;
+        }
     }
 }
