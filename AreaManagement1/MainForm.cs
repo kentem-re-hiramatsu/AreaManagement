@@ -73,5 +73,6 @@ namespace AreaManagement1
         {
             DeleteButton.Enabled = listView1.SelectedItems.Count > 0;
         }
+
     }
 }

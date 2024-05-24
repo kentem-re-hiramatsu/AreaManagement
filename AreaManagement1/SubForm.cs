@@ -66,19 +66,24 @@ namespace Subform
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            if(textBox1.Text.Length == 0)
-            {
-                OkButton.Enabled = false;
-            }
-            else
-            {
-                OkButton.Enabled = true;
-            }
+            OkButtonChange();
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void TrapezoidRadioButtonChange()
         {
+            textBox2.Enabled = TrapezoidRazio.Checked;
+            textBox3.Enabled = TrapezoidRazio.Checked;
+        }
 
+        private void OkButtonChange()
+        {
+            OkButton.Enabled = (TrapezoidRazio.Checked && textBox1.Text.Length > 0 && textBox2.Text.Length > 0 && textBox3.Text.Length > 0) || ((TriangleRazio.Checked || QuadRazio.Checked) && textBox1.Text.Length > 0);
+        }
+
+        private void TrapezoidRadioButtonChange(object sender, EventArgs e)
+        {
+            TrapezoidRadioButtonChange();
+            OkButtonChange();
         }
     }
 }

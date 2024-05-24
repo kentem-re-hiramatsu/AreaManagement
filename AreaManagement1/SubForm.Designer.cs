@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TrapezoidRazio = new System.Windows.Forms.RadioButton();
             this.TriangleRazio = new System.Windows.Forms.RadioButton();
             this.QuadRazio = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.OkButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
-            this.TrapezoidRazio = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -55,6 +55,18 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "種類";
             // 
+            // TrapezoidRazio
+            // 
+            this.TrapezoidRazio.AutoSize = true;
+            this.TrapezoidRazio.Location = new System.Drawing.Point(147, 29);
+            this.TrapezoidRazio.Name = "TrapezoidRazio";
+            this.TrapezoidRazio.Size = new System.Drawing.Size(47, 16);
+            this.TrapezoidRazio.TabIndex = 2;
+            this.TrapezoidRazio.TabStop = true;
+            this.TrapezoidRazio.Text = "台形";
+            this.TrapezoidRazio.UseVisualStyleBackColor = true;
+            this.TrapezoidRazio.CheckedChanged += new System.EventHandler(this.TrapezoidRadioButtonChange);
+            // 
             // TriangleRazio
             // 
             this.TriangleRazio.AutoSize = true;
@@ -65,6 +77,7 @@
             this.TriangleRazio.TabStop = true;
             this.TriangleRazio.Text = "三角形";
             this.TriangleRazio.UseVisualStyleBackColor = true;
+            this.TriangleRazio.CheckedChanged += new System.EventHandler(this.TrapezoidRadioButtonChange);
             // 
             // QuadRazio
             // 
@@ -77,6 +90,7 @@
             this.QuadRazio.TabStop = true;
             this.QuadRazio.Text = "四角形";
             this.QuadRazio.UseVisualStyleBackColor = true;
+            this.QuadRazio.CheckedChanged += new System.EventHandler(this.TrapezoidRadioButtonChange);
             // 
             // label1
             // 
@@ -116,17 +130,6 @@
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
-            // TrapezoidRazio
-            // 
-            this.TrapezoidRazio.AutoSize = true;
-            this.TrapezoidRazio.Location = new System.Drawing.Point(147, 29);
-            this.TrapezoidRazio.Name = "TrapezoidRazio";
-            this.TrapezoidRazio.Size = new System.Drawing.Size(47, 16);
-            this.TrapezoidRazio.TabIndex = 2;
-            this.TrapezoidRazio.TabStop = true;
-            this.TrapezoidRazio.Text = "台形";
-            this.TrapezoidRazio.UseVisualStyleBackColor = true;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -135,7 +138,6 @@
             this.label2.Size = new System.Drawing.Size(59, 12);
             this.label2.TabIndex = 5;
             this.label2.Text = "上底の長さ";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label3
             // 
@@ -148,17 +150,21 @@
             // 
             // textBox2
             // 
+            this.textBox2.Enabled = false;
             this.textBox2.Location = new System.Drawing.Point(104, 144);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(128, 19);
             this.textBox2.TabIndex = 7;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // textBox3
             // 
+            this.textBox3.Enabled = false;
             this.textBox3.Location = new System.Drawing.Point(104, 170);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(128, 19);
             this.textBox3.TabIndex = 8;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // SubForm
             // 
