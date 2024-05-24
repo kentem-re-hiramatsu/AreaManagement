@@ -12,27 +12,18 @@ namespace AreaManagement1.Model
         private double _upperBaseLength;
         private double _lowerBaseLength;
         private double _height;
-        private string _shapeName = "台形";
 
         public Trapezoid(double upperBaseLength, double lowerBaseLength, double height)
         {
             _upperBaseLength = upperBaseLength;
             _lowerBaseLength = lowerBaseLength;
             _height = height;
-            ShapeName = _shapeName;
+            this._shapeName = "台形";
         }
 
-        public override void SetArea()
+        public override double GetArea()
         {
-            Area = 0.5 * (_upperBaseLength + _lowerBaseLength) * _height;
-        }
-
-        public void SetLineLength()
-        {
-            LineLength = _upperBaseLength;
-            LineLength2 = _lowerBaseLength;
-            LineLength3 = _height;
-
+            return 0.5 * (_upperBaseLength + _lowerBaseLength) * _height;
         }
     }
 }

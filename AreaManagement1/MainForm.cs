@@ -39,19 +39,18 @@ namespace AreaManagement1
 
         public void UpdateView()
         {
-            var shapeList = shapeMana.GetShapeList();
-            double sumArea = 0;
             listView1.Items.Clear();
 
-            if(shapeList != null)
+            var shapeListCount = shapeMana.GetShapeListCount();
+
+            for (int i = 0; i < shapeListCount; i++)
             {
-                for(int i = 0; i < shapeList.Count; i++)
-                {
-                    listView1.Items.Add(shapeList[i].ShapeName).SubItems.Add(shapeList[i].Area.ToString());
-                    sumArea += shapeList[i].Area;
-                }
-                TotalLabel.Text = $"Total： {sumArea}";
+                var shapeList = shapeMana.GetShapeList(i);
+                listView1.Items.Add(shapeList[i].GetShapeName()).SubItems.Add(shapeList[i].GetArea().ToString());
             }
+
+            var sumArea = shapeMana.GetSumArea();
+            TotalLabel.Text = $"Total： {sumArea}";
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)

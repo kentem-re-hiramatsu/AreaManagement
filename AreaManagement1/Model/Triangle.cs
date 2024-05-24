@@ -9,21 +9,16 @@ namespace AreaManagement.Model
     public class Triangle : Shape
     {
         private double _sideLength;
-        private string _shapeName = "三角形";
 
         public Triangle(int sideLength)
         {
             _sideLength = sideLength;
-            ShapeName = _shapeName;
+            this._shapeName = "三角形";
         }
 
-        public override void SetArea()
+        public override double GetArea()
         {
-            Area = Math.Round((Math.Sqrt(3) / 4 * Math.Pow(_sideLength, 2)), 3);
-        }
-        public void SetLineLength()
-        {
-            LineLength = _sideLength;
+            return Math.Round((Math.Sqrt(3) / 4 * Math.Pow(_sideLength, 2)), 3);
         }
     }
 }

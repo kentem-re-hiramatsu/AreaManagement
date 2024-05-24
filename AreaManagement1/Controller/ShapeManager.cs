@@ -21,9 +21,25 @@ namespace AreaManagement.Controller
             _shapeList.Add(shape);
         }
 
-        public List<Shape> GetShapeList()
+        public List<Shape> GetShapeList(int index)
         {
             return _shapeList;
+        }
+
+        public int GetShapeListCount()
+        {
+            return _shapeList.Count;
+        }
+
+        public double GetSumArea()
+        {
+            double sumArea = 0;
+
+            for (int i = 0; i < _shapeList.Count; i++)
+            {
+                sumArea += _shapeList[i].GetArea();
+            }
+            return sumArea;
         }
 
         public void RemoveShapeAtIndex(int index)

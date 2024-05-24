@@ -10,22 +10,16 @@ namespace AreaManagement.Model
     public class Quadrilarea : Shape
     {
         private int _sideLength;
-        private string _shapeName = "四角形";
 
         public Quadrilarea(int sideLength)
         {
             _sideLength = sideLength;
-            ShapeName = _shapeName;
+            this._shapeName = "四角形";
         }
 
-        public override void SetArea()
+        public override double GetArea()
         {
-            Area = _sideLength * _sideLength;
-        }
-
-        public void SetLineLength()
-        {
-            LineLength = _sideLength;
+            return _sideLength * _sideLength;
         }
     }
 }
