@@ -53,6 +53,9 @@ namespace ChangeForm
                 lineLength3 = getList[selectedIndex].LineLength3;
 
                 TrapezoidRazio.Checked = true;
+
+                textBox2.Enabled = true;
+                textBox3.Enabled = true;
             }
 
             textBox1.Text = lineLength.ToString();
