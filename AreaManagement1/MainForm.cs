@@ -82,7 +82,6 @@ namespace AreaManagement1
 
             if (listView1.SelectedItems.Count > 0)
             {
-                DeleteAndChangeButtonChange();
                 selectedIndex = listView1.SelectedItems[0].Index;
             }
 
@@ -92,6 +91,7 @@ namespace AreaManagement1
             {
                 UpdateView();
             }
+            DeleteAndChangeButtonChange();
         }
     }
 }

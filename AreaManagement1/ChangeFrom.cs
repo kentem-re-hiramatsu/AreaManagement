@@ -74,42 +74,78 @@ namespace ChangeForm
         {
             if (QuadRazio.Checked)
             {
-                int inputLength = int.Parse(textBox1.Text);
-                var quad = new Quadrilarea(inputLength);
+                try
+                {
+                    int inputLength = int.Parse(textBox1.Text);
+                    var quad = new Quadrilarea(inputLength);
 
-                quad.SetArea();
-                quad.SetLineLength();
+                    quad.SetArea();
+                    quad.SetLineLength();
 
-                shapeMana.ChangeShape(quad, selectedIndex);
-                DialogResult = DialogResult.OK;
-                Close();
+                    shapeMana.ChangeShape(quad, selectedIndex);
+                    DialogResult = DialogResult.OK;
+                    Close();
+                }
+                catch
+                {
+                    MessageBox.Show(
+                        "数値を入力してください。",
+                        "エラー",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Hand
+                        );
+                }
             }
             else if (TriangleRazio.Checked)
             {
-                int inputLength = int.Parse(textBox1.Text);
-                var triangle = new Triangle(inputLength);
+                try
+                {
+                    int inputLength = int.Parse(textBox1.Text);
+                    var triangle = new Triangle(inputLength);
 
-                triangle.SetArea();
-                triangle.SetLineLength();
+                    triangle.SetArea();
+                    triangle.SetLineLength();
 
-                shapeMana.ChangeShape(triangle, selectedIndex);
-                DialogResult = DialogResult.OK;
-                Close();
+                    shapeMana.ChangeShape(triangle, selectedIndex);
+                    DialogResult = DialogResult.OK;
+                    Close();
+                }
+                catch
+                {
+                    MessageBox.Show(
+                        "数値を入力してください。",
+                        "エラー",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Hand
+                        );
+                }
             }
             else
             {
-                int inputLength = int.Parse(textBox1.Text);
-                int inputhUpperBaseLength = int.Parse(textBox2.Text);
-                int inputhLowerBaseLength = int.Parse(textBox3.Text);
+                try
+                {
+                    int inputLength = int.Parse(textBox1.Text);
+                    int inputhUpperBaseLength = int.Parse(textBox2.Text);
+                    int inputhLowerBaseLength = int.Parse(textBox3.Text);
 
-                var trapezoid = new Trapezoid(inputLength, inputhUpperBaseLength, inputhLowerBaseLength);
+                    var trapezoid = new Trapezoid(inputLength, inputhUpperBaseLength, inputhLowerBaseLength);
 
-                trapezoid.SetArea();
-                trapezoid.SetLineLength();
+                    trapezoid.SetArea();
+                    trapezoid.SetLineLength();
 
-                shapeMana.ChangeShape(trapezoid,selectedIndex);
-                DialogResult = DialogResult.OK;
-                Close();
+                    shapeMana.ChangeShape(trapezoid, selectedIndex);
+                    DialogResult = DialogResult.OK;
+                    Close();
+                }
+                catch
+                {
+                    MessageBox.Show(
+                        "数値を入力してください。",
+                        "エラー",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Hand
+                        );
+                }
             }
         }
     }
