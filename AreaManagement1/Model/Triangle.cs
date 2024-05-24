@@ -21,5 +21,9 @@ namespace AreaManagement.Model
         {
             Area = Math.Round((Math.Sqrt(3) / 4 * Math.Pow(_sideLength, 2)), 3);
         }
+        public void SetLineLength()
+        {
+            LineLength = _sideLength;
+        }
     }
 }

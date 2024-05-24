@@ -22,5 +22,10 @@ namespace AreaManagement.Model
         {
             Area = _sideLength * _sideLength;
         }
+
+        public void SetLineLength()
+        {
+            LineLength = _sideLength;
+        }
     }
 }

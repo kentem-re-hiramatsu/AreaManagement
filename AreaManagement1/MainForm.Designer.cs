@@ -34,6 +34,7 @@
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ChangeButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AddButton
@@ -49,7 +50,7 @@
             // DeleteButton
             // 
             this.DeleteButton.Enabled = false;
-            this.DeleteButton.Location = new System.Drawing.Point(281, 107);
+            this.DeleteButton.Location = new System.Drawing.Point(281, 156);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(99, 40);
             this.DeleteButton.TabIndex = 1;
@@ -92,11 +93,24 @@
             this.columnHeader2.Text = "面積（m²）";
             this.columnHeader2.Width = 96;
             // 
+            // ChangeButton
+            // 
+            this.ChangeButton.Enabled = false;
+            this.ChangeButton.Location = new System.Drawing.Point(281, 101);
+            this.ChangeButton.Name = "ChangeButton";
+            this.ChangeButton.Size = new System.Drawing.Size(99, 40);
+            this.ChangeButton.TabIndex = 4;
+            this.ChangeButton.TabStop = false;
+            this.ChangeButton.Text = "変更";
+            this.ChangeButton.UseVisualStyleBackColor = true;
+            this.ChangeButton.Click += new System.EventHandler(this.ChangeButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(462, 265);
+            this.Controls.Add(this.ChangeButton);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.TotalLabel);
             this.Controls.Add(this.DeleteButton);
@@ -117,6 +131,7 @@
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.Button ChangeButton;
     }
 }
 

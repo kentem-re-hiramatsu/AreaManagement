@@ -33,7 +33,7 @@ namespace AreaManagement1
             {
                 UpdateView();
             }
-            DeleteButtonChange();
+            DeleteAndChangeButtonChange();
         }
 
         public void UpdateView()
@@ -60,19 +60,29 @@ namespace AreaManagement1
                 int selectedIndex = listView1.SelectedItems[0].Index;
                 shapeMana.RemoveShapeAtIndex(selectedIndex);
                 UpdateView();
-                DeleteButtonChange();
+                DeleteAndChangeButtonChange();
             }
         }
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            DeleteButtonChange();
+            DeleteAndChangeButtonChange();
         }
 
-        public void DeleteButtonChange()
+        public void DeleteAndChangeButtonChange()
         {
             DeleteButton.Enabled = listView1.SelectedItems.Count > 0;
+            ChangeButton.Enabled = listView1.SelectedItems.Count > 0;
         }
 
+        private void ChangeButton_Click(object sender, EventArgs e)
+        {
+            SubForm subfrom = new SubForm(shapeMana);
+            if (DialogResult.OK == subfrom.ShowDialog())
+            {
+                UpdateView();
+            }
+            DeleteAndChangeButtonChange();
+        }
     }
 }

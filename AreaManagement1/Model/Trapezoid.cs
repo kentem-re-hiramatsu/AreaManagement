@@ -26,5 +26,13 @@ namespace AreaManagement1.Model
         {
             Area = 0.5 * (_upperBaseLength + _lowerBaseLength) * _height;
         }
+
+        public void SetLineLength()
+        {
+            LineLength = _upperBaseLength;
+            LineLength2 = _lowerBaseLength;
+            LineLength3 = _height;
+
+        }
     }
 }

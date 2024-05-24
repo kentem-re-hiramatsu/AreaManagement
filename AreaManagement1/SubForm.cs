@@ -34,30 +34,41 @@ namespace Subform
 
         private void OkButton_Click(object sender, EventArgs e)
         {
-            int inputLength = int.Parse(textBox1.Text);
-            int inputhUpperBaseLength = int.Parse(textBox2.Text);
-            int inputhLowerBaseLength = int.Parse(textBox3.Text);
-
             if(QuadRazio.Checked)
             {
+                int inputLength = int.Parse(textBox1.Text);
                 var quad = new Quadrilarea(inputLength);
+
                 quad.SetArea();
+                quad.SetLineLength();
+
                 shapeMana.AddShapeList(quad);
                 DialogResult = DialogResult.OK;
                 Close();
             }
             else if(TriangleRazio.Checked)
             {
+                int inputLength = int.Parse(textBox1.Text);
                 var triangle = new Triangle(inputLength);
+
                 triangle.SetArea();
+                triangle.SetLineLength();
+
                 shapeMana.AddShapeList(triangle);
                 DialogResult = DialogResult.OK;
                 Close();
             }
             else
             {
+                int inputLength = int.Parse(textBox1.Text);
+                int inputhUpperBaseLength = int.Parse(textBox2.Text);
+                int inputhLowerBaseLength = int.Parse(textBox3.Text);
+
                 var trapezoid = new Trapezoid(inputLength, inputhUpperBaseLength, inputhLowerBaseLength);
+
                 trapezoid.SetArea();
+                trapezoid.SetLineLength();
+
                 shapeMana.AddShapeList(trapezoid);
                 DialogResult = DialogResult.OK;
                 Close();
