@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+﻿using AreaManagement.Controller;
 using AreaManagement.Model;
-using AreaManagement.Controller;
-using System.Windows.Forms;
-using AreaManagement1;
 using AreaManagement1.Model;
+using System;
+using System.Windows.Forms;
 
 namespace Subform
 {
@@ -41,9 +34,6 @@ namespace Subform
                     int inputLength = int.Parse(textBox1.Text);
                     var quad = new Quadrilarea(inputLength);
 
-                    quad.SetArea();
-                    quad.SetLineLength();
-
                     shapeMana.AddShapeList(quad);
                     DialogResult = DialogResult.OK;
                     Close();
@@ -64,9 +54,6 @@ namespace Subform
                 {
                     int inputLength = int.Parse(textBox1.Text);
                     var triangle = new Triangle(inputLength);
-
-                    triangle.SetArea();
-                    triangle.SetLineLength();
 
                     shapeMana.AddShapeList(triangle);
                     DialogResult = DialogResult.OK;
@@ -91,9 +78,6 @@ namespace Subform
                     int inputhLowerBaseLength = int.Parse(textBox3.Text);
 
                     var trapezoid = new Trapezoid(inputLength, inputhUpperBaseLength, inputhLowerBaseLength);
-
-                    trapezoid.SetArea();
-                    trapezoid.SetLineLength();
 
                     shapeMana.AddShapeList(trapezoid);
                     DialogResult = DialogResult.OK;
