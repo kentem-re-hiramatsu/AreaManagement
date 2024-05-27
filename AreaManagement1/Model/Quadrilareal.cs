@@ -1,25 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
-
-namespace AreaManagement.Model
+﻿namespace AreaManagement.Model
 {
     public class Quadrilarea : Shape
     {
-        private int _sideLength;
+        private double _sideLength;
 
-        public Quadrilarea(int sideLength)
+        public Quadrilarea(double sideLength)
         {
             _sideLength = sideLength;
-            this._shapeName = "四角形";
+            this._shapeName = ShapeEnum.ShapeNameEnum.四角形;
         }
 
         public override double GetArea()
         {
             return _sideLength * _sideLength;
+        }
+
+        public override double[] GetLength()
+        {
+            return new double[] { _sideLength };
+        }
+
+        public override void SetLength(double Length)
+        {
+            _sideLength = Length;
         }
     }
 }

@@ -29,25 +29,25 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.TrapezoidRazio = new System.Windows.Forms.RadioButton();
-            this.TriangleRazio = new System.Windows.Forms.RadioButton();
-            this.QuadRazio = new System.Windows.Forms.RadioButton();
+            this.TrapezoidRadio = new System.Windows.Forms.RadioButton();
+            this.TriangleRadio = new System.Windows.Forms.RadioButton();
+            this.QuadRadio = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.LengthTextBox = new System.Windows.Forms.TextBox();
             this.OkButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.upperBaseLengthtextBox = new System.Windows.Forms.TextBox();
+            this.lowerBaseLengthtextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.TrapezoidRazio);
-            this.groupBox1.Controls.Add(this.TriangleRazio);
-            this.groupBox1.Controls.Add(this.QuadRazio);
+            this.groupBox1.Controls.Add(this.TrapezoidRadio);
+            this.groupBox1.Controls.Add(this.TriangleRadio);
+            this.groupBox1.Controls.Add(this.QuadRadio);
             this.groupBox1.Location = new System.Drawing.Point(32, 25);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 71);
@@ -55,42 +55,42 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "種類";
             // 
-            // TrapezoidRazio
+            // TrapezoidRadio
             // 
-            this.TrapezoidRazio.AutoSize = true;
-            this.TrapezoidRazio.Location = new System.Drawing.Point(147, 29);
-            this.TrapezoidRazio.Name = "TrapezoidRazio";
-            this.TrapezoidRazio.Size = new System.Drawing.Size(47, 16);
-            this.TrapezoidRazio.TabIndex = 2;
-            this.TrapezoidRazio.TabStop = true;
-            this.TrapezoidRazio.Text = "台形";
-            this.TrapezoidRazio.UseVisualStyleBackColor = true;
-            this.TrapezoidRazio.CheckedChanged += new System.EventHandler(this.TrapezoidRadioButtonChange);
+            this.TrapezoidRadio.AutoSize = true;
+            this.TrapezoidRadio.Location = new System.Drawing.Point(147, 29);
+            this.TrapezoidRadio.Name = "TrapezoidRadio";
+            this.TrapezoidRadio.Size = new System.Drawing.Size(47, 16);
+            this.TrapezoidRadio.TabIndex = 2;
+            this.TrapezoidRadio.TabStop = true;
+            this.TrapezoidRadio.Text = "台形";
+            this.TrapezoidRadio.UseVisualStyleBackColor = true;
+            this.TrapezoidRadio.CheckedChanged += new System.EventHandler(this.TrapezoidRadioButtonChange);
             // 
-            // TriangleRazio
+            // TriangleRadio
             // 
-            this.TriangleRazio.AutoSize = true;
-            this.TriangleRazio.Location = new System.Drawing.Point(72, 29);
-            this.TriangleRazio.Name = "TriangleRazio";
-            this.TriangleRazio.Size = new System.Drawing.Size(59, 16);
-            this.TriangleRazio.TabIndex = 1;
-            this.TriangleRazio.TabStop = true;
-            this.TriangleRazio.Text = "三角形";
-            this.TriangleRazio.UseVisualStyleBackColor = true;
-            this.TriangleRazio.CheckedChanged += new System.EventHandler(this.TrapezoidRadioButtonChange);
+            this.TriangleRadio.AutoSize = true;
+            this.TriangleRadio.Location = new System.Drawing.Point(72, 29);
+            this.TriangleRadio.Name = "TriangleRadio";
+            this.TriangleRadio.Size = new System.Drawing.Size(59, 16);
+            this.TriangleRadio.TabIndex = 1;
+            this.TriangleRadio.TabStop = true;
+            this.TriangleRadio.Text = "三角形";
+            this.TriangleRadio.UseVisualStyleBackColor = true;
+            this.TriangleRadio.CheckedChanged += new System.EventHandler(this.TrapezoidRadioButtonChange);
             // 
-            // QuadRazio
+            // QuadRadio
             // 
-            this.QuadRazio.AutoSize = true;
-            this.QuadRazio.Checked = true;
-            this.QuadRazio.Location = new System.Drawing.Point(6, 29);
-            this.QuadRazio.Name = "QuadRazio";
-            this.QuadRazio.Size = new System.Drawing.Size(59, 16);
-            this.QuadRazio.TabIndex = 0;
-            this.QuadRazio.TabStop = true;
-            this.QuadRazio.Text = "四角形";
-            this.QuadRazio.UseVisualStyleBackColor = true;
-            this.QuadRazio.CheckedChanged += new System.EventHandler(this.TrapezoidRadioButtonChange);
+            this.QuadRadio.AutoSize = true;
+            this.QuadRadio.Checked = true;
+            this.QuadRadio.Location = new System.Drawing.Point(6, 29);
+            this.QuadRadio.Name = "QuadRadio";
+            this.QuadRadio.Size = new System.Drawing.Size(59, 16);
+            this.QuadRadio.TabIndex = 0;
+            this.QuadRadio.TabStop = true;
+            this.QuadRadio.Text = "四角形";
+            this.QuadRadio.UseVisualStyleBackColor = true;
+            this.QuadRadio.CheckedChanged += new System.EventHandler(this.TrapezoidRadioButtonChange);
             // 
             // label1
             // 
@@ -101,13 +101,13 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "一辺の長さ";
             // 
-            // textBox1
+            // LengthTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(104, 115);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(128, 19);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.LengthTextBox.Location = new System.Drawing.Point(104, 115);
+            this.LengthTextBox.Name = "LengthTextBox";
+            this.LengthTextBox.Size = new System.Drawing.Size(128, 19);
+            this.LengthTextBox.TabIndex = 2;
+            this.LengthTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // OkButton
             // 
@@ -148,36 +148,36 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "下底の長さ";
             // 
-            // textBox2
+            // upperBaseLengthtextBox
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(104, 144);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(128, 19);
-            this.textBox2.TabIndex = 7;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.upperBaseLengthtextBox.Enabled = false;
+            this.upperBaseLengthtextBox.Location = new System.Drawing.Point(104, 144);
+            this.upperBaseLengthtextBox.Name = "upperBaseLengthtextBox";
+            this.upperBaseLengthtextBox.Size = new System.Drawing.Size(128, 19);
+            this.upperBaseLengthtextBox.TabIndex = 7;
+            this.upperBaseLengthtextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // textBox3
+            // lowerBaseLengthtextBox
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(104, 170);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(128, 19);
-            this.textBox3.TabIndex = 8;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.lowerBaseLengthtextBox.Enabled = false;
+            this.lowerBaseLengthtextBox.Location = new System.Drawing.Point(104, 170);
+            this.lowerBaseLengthtextBox.Name = "lowerBaseLengthtextBox";
+            this.lowerBaseLengthtextBox.Size = new System.Drawing.Size(128, 19);
+            this.lowerBaseLengthtextBox.TabIndex = 8;
+            this.lowerBaseLengthtextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // SubForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(289, 258);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.lowerBaseLengthtextBox);
+            this.Controls.Add(this.upperBaseLengthtextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.OkButton);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.LengthTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Name = "SubForm";
@@ -193,17 +193,17 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton TriangleRazio;
-        private System.Windows.Forms.RadioButton QuadRazio;
+        private System.Windows.Forms.RadioButton TriangleRadio;
+        private System.Windows.Forms.RadioButton QuadRadio;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox LengthTextBox;
         private System.Windows.Forms.Button OkButton;
         private System.Windows.Forms.Button CancelButton;
-        private System.Windows.Forms.RadioButton TrapezoidRazio;
+        private System.Windows.Forms.RadioButton TrapezoidRadio;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox upperBaseLengthtextBox;
+        private System.Windows.Forms.TextBox lowerBaseLengthtextBox;
     }
 }
 

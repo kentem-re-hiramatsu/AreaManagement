@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.TrapezoidRazio = new System.Windows.Forms.RadioButton();
-            this.TriangleRazio = new System.Windows.Forms.RadioButton();
+            this.TrapezoidRadio = new System.Windows.Forms.RadioButton();
+            this.TriangleRadio = new System.Windows.Forms.RadioButton();
             this.QuadRazio = new System.Windows.Forms.RadioButton();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -45,8 +45,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.TrapezoidRazio);
-            this.groupBox1.Controls.Add(this.TriangleRazio);
+            this.groupBox1.Controls.Add(this.TrapezoidRadio);
+            this.groupBox1.Controls.Add(this.TriangleRadio);
             this.groupBox1.Controls.Add(this.QuadRazio);
             this.groupBox1.Location = new System.Drawing.Point(39, 31);
             this.groupBox1.Name = "groupBox1";
@@ -57,25 +57,25 @@
             // 
             // TrapezoidRazio
             // 
-            this.TrapezoidRazio.AutoSize = true;
-            this.TrapezoidRazio.Enabled = false;
-            this.TrapezoidRazio.Location = new System.Drawing.Point(147, 29);
-            this.TrapezoidRazio.Name = "TrapezoidRazio";
-            this.TrapezoidRazio.Size = new System.Drawing.Size(47, 16);
-            this.TrapezoidRazio.TabIndex = 2;
-            this.TrapezoidRazio.Text = "台形";
-            this.TrapezoidRazio.UseVisualStyleBackColor = true;
+            this.TrapezoidRadio.AutoSize = true;
+            this.TrapezoidRadio.Enabled = false;
+            this.TrapezoidRadio.Location = new System.Drawing.Point(147, 29);
+            this.TrapezoidRadio.Name = "TrapezoidRazio";
+            this.TrapezoidRadio.Size = new System.Drawing.Size(47, 16);
+            this.TrapezoidRadio.TabIndex = 2;
+            this.TrapezoidRadio.Text = "台形";
+            this.TrapezoidRadio.UseVisualStyleBackColor = true;
             // 
             // TriangleRazio
             // 
-            this.TriangleRazio.AutoSize = true;
-            this.TriangleRazio.Enabled = false;
-            this.TriangleRazio.Location = new System.Drawing.Point(72, 29);
-            this.TriangleRazio.Name = "TriangleRazio";
-            this.TriangleRazio.Size = new System.Drawing.Size(59, 16);
-            this.TriangleRazio.TabIndex = 1;
-            this.TriangleRazio.Text = "三角形";
-            this.TriangleRazio.UseVisualStyleBackColor = true;
+            this.TriangleRadio.AutoSize = true;
+            this.TriangleRadio.Enabled = false;
+            this.TriangleRadio.Location = new System.Drawing.Point(72, 29);
+            this.TriangleRadio.Name = "TriangleRazio";
+            this.TriangleRadio.Size = new System.Drawing.Size(59, 16);
+            this.TriangleRadio.TabIndex = 1;
+            this.TriangleRadio.Text = "三角形";
+            this.TriangleRadio.UseVisualStyleBackColor = true;
             // 
             // QuadRazio
             // 
@@ -189,8 +189,8 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton TrapezoidRazio;
-        private System.Windows.Forms.RadioButton TriangleRazio;
+        private System.Windows.Forms.RadioButton TrapezoidRadio;
+        private System.Windows.Forms.RadioButton TriangleRadio;
         private System.Windows.Forms.RadioButton QuadRazio;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox textBox2;

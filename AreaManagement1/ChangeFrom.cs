@@ -1,16 +1,8 @@
-﻿using AreaManagement.Controller;
+﻿using AreaManagement;
+using AreaManagement.Controller;
+using AreaManagement1;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Subform;
-using AreaManagement.Model;
-using AreaManagement1.Model;
 
 namespace ChangeForm
 {
@@ -33,34 +25,31 @@ namespace ChangeForm
 
         public void SetInitialValueInTextBox()
         {
-            var getList = shapeMana.GetShapeList();
-            var shapeName = getList[selectedIndex].ShapeName;
-            double lineLength = 0;
-            double lineLength2 = 0;
-            double lineLength3 = 0;
+            var getList = shapeMana.GetShape(selectedIndex);
+            var shapeName = getList.GetShapeName();
 
-            if (shapeName == "四角形" || shapeName == "三角形")
+            double[] lineLength;
+
+            if (shapeName == ShapeEnum.ShapeNameEnum.四角形 || shapeName == ShapeEnum.ShapeNameEnum.三角形)
             {
-                lineLength = getList[selectedIndex].LineLength;
+                lineLength = getList.GetLength();
 
-                if (shapeName == "四角形") { QuadRazio.Checked = true; }
-                else{ TriangleRazio.Checked = true; }
+                if (shapeName == ShapeEnum.ShapeNameEnum.四角形) { QuadRazio.Checked = true; }
+                else { TriangleRadio.Checked = true; }
             }
             else
             {
-                lineLength = getList[selectedIndex].LineLength;
-                lineLength2 = getList[selectedIndex].LineLength2;
-                lineLength3 = getList[selectedIndex].LineLength3;
+                lineLength = getList.GetLength();
 
-                TrapezoidRazio.Checked = true;
+                TrapezoidRadio.Checked = true;
 
                 textBox2.Enabled = true;
                 textBox3.Enabled = true;
-            }
 
-            textBox1.Text = lineLength.ToString();
-            textBox2.Text = lineLength2.ToString();
-            textBox3.Text = lineLength3.ToString();
+                textBox2.Text = lineLength[1].ToString();
+                textBox3.Text = lineLength[2].ToString();
+            }
+            textBox1.Text = lineLength[0].ToString();
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -70,59 +59,34 @@ namespace ChangeForm
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            OkButton.Enabled = (TrapezoidRazio.Checked && textBox1.Text.Length > 0 && textBox2.Text.Length > 0 && textBox3.Text.Length > 0) || ((TriangleRazio.Checked || QuadRazio.Checked) && textBox1.Text.Length > 0);
+            OkButton.Enabled = (TrapezoidRadio.Checked && textBox1.Text.Length > 0 && textBox2.Text.Length > 0 && textBox3.Text.Length > 0) || ((TriangleRadio.Checked || QuadRazio.Checked) && textBox1.Text.Length > 0);
         }
 
         private void OkButton_Click(object sender, EventArgs e)
         {
-            if (QuadRazio.Checked)
+            var getlist = shapeMana.GetShape(selectedIndex);
+
+            if (QuadRazio.Checked || TriangleRadio.Checked)
             {
                 try
                 {
                     int inputLength = int.Parse(textBox1.Text);
-                    var quad = new Quadrilarea(inputLength);
+                    getlist.SetLength(inputLength);
 
-                    quad.SetArea();
-                    quad.SetLineLength();
-
-                    shapeMana.ChangeShape(quad, selectedIndex);
                     DialogResult = DialogResult.OK;
                     Close();
                 }
                 catch
                 {
                     MessageBox.Show(
-                        "数値を入力してください。",
-                        "エラー",
+                        Consts.MESSAGE_PLEASENUMVER,
+                        Consts.ERROR_MESSAGE,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Hand
                         );
                 }
             }
-            else if (TriangleRazio.Checked)
-            {
-                try
-                {
-                    int inputLength = int.Parse(textBox1.Text);
-                    var triangle = new Triangle(inputLength);
 
-                    triangle.SetArea();
-                    triangle.SetLineLength();
-
-                    shapeMana.ChangeShape(triangle, selectedIndex);
-                    DialogResult = DialogResult.OK;
-                    Close();
-                }
-                catch
-                {
-                    MessageBox.Show(
-                        "数値を入力してください。",
-                        "エラー",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Hand
-                        );
-                }
-            }
             else
             {
                 try
@@ -130,21 +94,16 @@ namespace ChangeForm
                     int inputLength = int.Parse(textBox1.Text);
                     int inputhUpperBaseLength = int.Parse(textBox2.Text);
                     int inputhLowerBaseLength = int.Parse(textBox3.Text);
+                    getlist.SetLength(inputLength, inputhUpperBaseLength, inputhLowerBaseLength);
 
-                    var trapezoid = new Trapezoid(inputLength, inputhUpperBaseLength, inputhLowerBaseLength);
-
-                    trapezoid.SetArea();
-                    trapezoid.SetLineLength();
-
-                    shapeMana.ChangeShape(trapezoid, selectedIndex);
                     DialogResult = DialogResult.OK;
                     Close();
                 }
                 catch
                 {
                     MessageBox.Show(
-                        "数値を入力してください。",
-                        "エラー",
+                        Consts.MESSAGE_PLEASENUMVER,
+                        Consts.ERROR_MESSAGE,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Hand
                         );

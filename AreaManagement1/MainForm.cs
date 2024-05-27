@@ -1,14 +1,8 @@
 ﻿using AreaManagement.Controller;
+using AreaManagement.Model;
 using ChangeForm;
 using Subform;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AreaManagement1
@@ -30,7 +24,7 @@ namespace AreaManagement1
         {
             SubForm subfrom = new SubForm(shapeMana);
 
-            if(DialogResult.OK == subfrom.ShowDialog())
+            if (DialogResult.OK == subfrom.ShowDialog())
             {
                 UpdateView();
             }
@@ -45,8 +39,9 @@ namespace AreaManagement1
 
             for (int i = 0; i < shapeListCount; i++)
             {
-                var shapeList = shapeMana.GetShapeList(i);
-                listView1.Items.Add(shapeList[i].GetShapeName()).SubItems.Add(shapeList[i].GetArea().ToString());
+                Shape shapeList = shapeMana.GetShape(i);
+                listView1.Items.Add(shapeList.GetShapeName().ToString()
+                    ).SubItems.Add(shapeList.GetArea().ToString());
             }
 
             var sumArea = shapeMana.GetSumArea();
@@ -55,7 +50,7 @@ namespace AreaManagement1
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            if(listView1.SelectedItems.Count > 0)
+            if (listView1.SelectedItems.Count > 0)
             {
                 int selectedIndex = listView1.SelectedItems[0].Index;
                 shapeMana.RemoveShapeAtIndex(selectedIndex);

@@ -1,5 +1,6 @@
 ﻿using AreaManagement.Controller;
 using AreaManagement.Model;
+using AreaManagement1;
 using AreaManagement1.Model;
 using System;
 using System.Windows.Forms;
@@ -27,11 +28,11 @@ namespace Subform
 
         private void OkButton_Click(object sender, EventArgs e)
         {
-            if(QuadRazio.Checked)
+            if (QuadRadio.Checked)
             {
                 try
                 {
-                    int inputLength = int.Parse(textBox1.Text);
+                    int inputLength = int.Parse(LengthTextBox.Text);
                     var quad = new Quadrilarea(inputLength);
 
                     shapeMana.AddShapeList(quad);
@@ -41,18 +42,18 @@ namespace Subform
                 catch
                 {
                     MessageBox.Show(
-                        "数値を入力してください。",
-                        "エラー",
+                        Consts.MESSAGE_PLEASENUMVER,
+                        Consts.ERROR_MESSAGE,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Hand
                         );
                 }
             }
-            else if(TriangleRazio.Checked)
+            else if (TriangleRadio.Checked)
             {
                 try
                 {
-                    int inputLength = int.Parse(textBox1.Text);
+                    int inputLength = int.Parse(LengthTextBox.Text);
                     var triangle = new Triangle(inputLength);
 
                     shapeMana.AddShapeList(triangle);
@@ -62,8 +63,8 @@ namespace Subform
                 catch
                 {
                     MessageBox.Show(
-                        "数値を入力してください。",
-                        "エラー",
+                        Consts.MESSAGE_PLEASENUMVER,
+                        Consts.ERROR_MESSAGE,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Hand
                      );
@@ -73,9 +74,9 @@ namespace Subform
             {
                 try
                 {
-                    int inputLength = int.Parse(textBox1.Text);
-                    int inputhUpperBaseLength = int.Parse(textBox2.Text);
-                    int inputhLowerBaseLength = int.Parse(textBox3.Text);
+                    int inputLength = int.Parse(LengthTextBox.Text);
+                    int inputhUpperBaseLength = int.Parse(upperBaseLengthtextBox.Text);
+                    int inputhLowerBaseLength = int.Parse(lowerBaseLengthtextBox.Text);
 
                     var trapezoid = new Trapezoid(inputLength, inputhUpperBaseLength, inputhLowerBaseLength);
 
@@ -86,8 +87,8 @@ namespace Subform
                 catch
                 {
                     MessageBox.Show(
-                        "数値を入力してください。",
-                        "エラー",
+                        Consts.MESSAGE_PLEASENUMVER,
+                        Consts.ERROR_MESSAGE,
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Hand
                         );
@@ -102,13 +103,13 @@ namespace Subform
 
         private void TrapezoidRadioButtonChange()
         {
-            textBox2.Enabled = TrapezoidRazio.Checked;
-            textBox3.Enabled = TrapezoidRazio.Checked;
+            upperBaseLengthtextBox.Enabled = TrapezoidRadio.Checked;
+            lowerBaseLengthtextBox.Enabled = TrapezoidRadio.Checked;
         }
 
         private void OkButtonChange()
         {
-            OkButton.Enabled = (TrapezoidRazio.Checked && textBox1.Text.Length > 0 && textBox2.Text.Length > 0 && textBox3.Text.Length > 0) || ((TriangleRazio.Checked || QuadRazio.Checked) && textBox1.Text.Length > 0);
+            OkButton.Enabled = (TrapezoidRadio.Checked && LengthTextBox.Text.Length > 0 && upperBaseLengthtextBox.Text.Length > 0 && lowerBaseLengthtextBox.Text.Length > 0) || ((TriangleRadio.Checked || QuadRadio.Checked) && LengthTextBox.Text.Length > 0);
         }
 
         private void TrapezoidRadioButtonChange(object sender, EventArgs e)

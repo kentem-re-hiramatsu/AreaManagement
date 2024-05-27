@@ -1,9 +1,5 @@
-﻿using System;
+﻿using AreaManagement.Model;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using AreaManagement.Model;
 
 namespace AreaManagement.Controller
 {
@@ -21,9 +17,9 @@ namespace AreaManagement.Controller
             _shapeList.Add(shape);
         }
 
-        public List<Shape> GetShapeList(int index)
+        public Shape GetShape(int index)
         {
-            return _shapeList;
+            return _shapeList[index];
         }
 
         public int GetShapeListCount()
@@ -45,11 +41,6 @@ namespace AreaManagement.Controller
         public void RemoveShapeAtIndex(int index)
         {
             _shapeList.RemoveAt(index);
-        }
-
-        public void ChangeShape(Shape shape, int index)
-        {
-            _shapeList[index] = shape;
         }
     }
 }
