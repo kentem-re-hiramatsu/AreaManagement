@@ -34,7 +34,7 @@ namespace ChangeForm
             {
                 lineLength = getList.GetLength();
 
-                if (shapeName == ShapeEnum.ShapeNameEnum.四角形) { QuadRazio.Checked = true; }
+                if (shapeName == ShapeEnum.ShapeNameEnum.四角形) { QuadRadio.Checked = true; }
                 else { TriangleRadio.Checked = true; }
             }
             else
@@ -59,39 +59,25 @@ namespace ChangeForm
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            OkButton.Enabled = (TrapezoidRadio.Checked && textBox1.Text.Length > 0 && textBox2.Text.Length > 0 && textBox3.Text.Length > 0) || ((TriangleRadio.Checked || QuadRazio.Checked) && textBox1.Text.Length > 0);
+            OkButton.Enabled = (TrapezoidRadio.Checked && textBox1.Text.Length > 0 && textBox2.Text.Length > 0 && textBox3.Text.Length > 0) || ((TriangleRadio.Checked || QuadRadio.Checked) && textBox1.Text.Length > 0);
         }
 
         private void OkButton_Click(object sender, EventArgs e)
         {
-            var getlist = shapeMana.GetShape(selectedIndex);
-
-            if (QuadRazio.Checked || TriangleRadio.Checked)
+            try
             {
-                try
+                var getlist = shapeMana.GetShape(selectedIndex);
+                int inputLength = int.Parse(textBox1.Text);
+
+                if (QuadRadio.Checked || TriangleRadio.Checked)
                 {
-                    int inputLength = int.Parse(textBox1.Text);
                     getlist.SetLength(inputLength);
 
                     DialogResult = DialogResult.OK;
                     Close();
                 }
-                catch
+                else
                 {
-                    MessageBox.Show(
-                        Consts.MESSAGE_PLEASENUMVER,
-                        Consts.ERROR_MESSAGE,
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Hand
-                        );
-                }
-            }
-
-            else
-            {
-                try
-                {
-                    int inputLength = int.Parse(textBox1.Text);
                     int inputhUpperBaseLength = int.Parse(textBox2.Text);
                     int inputhLowerBaseLength = int.Parse(textBox3.Text);
                     getlist.SetLength(inputLength, inputhUpperBaseLength, inputhLowerBaseLength);
@@ -99,15 +85,10 @@ namespace ChangeForm
                     DialogResult = DialogResult.OK;
                     Close();
                 }
-                catch
-                {
-                    MessageBox.Show(
-                        Consts.MESSAGE_PLEASENUMVER,
-                        Consts.ERROR_MESSAGE,
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Hand
-                        );
-                }
+            }
+            catch
+            {
+                MessageBox.Show(Consts.MESSAGE_PLEASENUMVER, Consts.ERROR_MESSAGE, MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
         }
     }

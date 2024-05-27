@@ -9,7 +9,7 @@ namespace Subform
 {
     public partial class SubForm : Form
     {
-        ShapeManager shapeMana;
+        ShapeManager shapeMana = null;
         public SubForm(ShapeManager shapeMana)
         {
             InitializeComponent();
@@ -28,73 +28,40 @@ namespace Subform
 
         private void OkButton_Click(object sender, EventArgs e)
         {
-            if (QuadRadio.Checked)
-            {
-                try
-                {
-                    int inputLength = int.Parse(LengthTextBox.Text);
-                    var quad = new Quadrilarea(inputLength);
+            Shape shape = null;
 
-                    shapeMana.AddShapeList(quad);
-                    DialogResult = DialogResult.OK;
-                    Close();
-                }
-                catch
+            try
+            {
+                int inputLength = int.Parse(LengthTextBox.Text);
+
+                if (QuadRadio.Checked)
                 {
-                    MessageBox.Show(
-                        Consts.MESSAGE_PLEASENUMVER,
-                        Consts.ERROR_MESSAGE,
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Hand
-                        );
+                    shape = new Quadrilarea(inputLength);
+                }
+                else if (TriangleRadio.Checked)
+                {
+                    shape = new Triangle(inputLength);
+                }
+                else if (TrapezoidRadio.Checked)
+                {
+                    int inputUpperBaseLength = int.Parse(upperBaseLengthtextBox.Text);
+                    int inputLowerBaseLength = int.Parse(lowerBaseLengthtextBox.Text);
+                    shape = new Trapezoid(inputLength, inputUpperBaseLength, inputLowerBaseLength);
                 }
             }
-            else if (TriangleRadio.Checked)
+            catch
             {
-                try
-                {
-                    int inputLength = int.Parse(LengthTextBox.Text);
-                    var triangle = new Triangle(inputLength);
-
-                    shapeMana.AddShapeList(triangle);
-                    DialogResult = DialogResult.OK;
-                    Close();
-                }
-                catch
-                {
-                    MessageBox.Show(
-                        Consts.MESSAGE_PLEASENUMVER,
-                        Consts.ERROR_MESSAGE,
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Hand
-                     );
-                }
+                MessageBox.Show(Consts.MESSAGE_PLEASENUMVER, Consts.ERROR_MESSAGE, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else
+
+            if (shape != null)
             {
-                try
-                {
-                    int inputLength = int.Parse(LengthTextBox.Text);
-                    int inputhUpperBaseLength = int.Parse(upperBaseLengthtextBox.Text);
-                    int inputhLowerBaseLength = int.Parse(lowerBaseLengthtextBox.Text);
-
-                    var trapezoid = new Trapezoid(inputLength, inputhUpperBaseLength, inputhLowerBaseLength);
-
-                    shapeMana.AddShapeList(trapezoid);
-                    DialogResult = DialogResult.OK;
-                    Close();
-                }
-                catch
-                {
-                    MessageBox.Show(
-                        Consts.MESSAGE_PLEASENUMVER,
-                        Consts.ERROR_MESSAGE,
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Hand
-                        );
-                }
+                shapeMana.AddShapeList(shape);
+                DialogResult = DialogResult.OK;
+                Close();
             }
         }
+
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
