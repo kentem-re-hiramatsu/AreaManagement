@@ -34,8 +34,7 @@ namespace ChangeForm
             {
                 lineLength = getList.GetLength();
 
-                if (shapeName == ShapeEnum.ShapeNameEnum.四角形) { QuadRadio.Checked = true; }
-                else { TriangleRadio.Checked = true; }
+                if (shapeName == ShapeEnum.ShapeNameEnum.三角形) { TriangleRadio.Checked = true; }
             }
             else
             {
@@ -72,19 +71,15 @@ namespace ChangeForm
                 if (QuadRadio.Checked || TriangleRadio.Checked)
                 {
                     getlist.SetLength(inputLength);
-
-                    DialogResult = DialogResult.OK;
-                    Close();
                 }
                 else
                 {
                     int inputhUpperBaseLength = int.Parse(textBox2.Text);
                     int inputhLowerBaseLength = int.Parse(textBox3.Text);
                     getlist.SetLength(inputLength, inputhUpperBaseLength, inputhLowerBaseLength);
-
-                    DialogResult = DialogResult.OK;
-                    Close();
                 }
+                DialogResult = DialogResult.OK;
+                Close();
             }
             catch
             {

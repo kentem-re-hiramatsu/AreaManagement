@@ -80,11 +80,13 @@
             // QuadRadio
             // 
             this.QuadRadio.AutoSize = true;
+            this.QuadRadio.Checked = true;
             this.QuadRadio.Enabled = false;
             this.QuadRadio.Location = new System.Drawing.Point(6, 29);
             this.QuadRadio.Name = "QuadRadio";
             this.QuadRadio.Size = new System.Drawing.Size(59, 16);
             this.QuadRadio.TabIndex = 0;
+            this.QuadRadio.TabStop = true;
             this.QuadRadio.Text = "四角形";
             this.QuadRadio.UseVisualStyleBackColor = true;
             // 
