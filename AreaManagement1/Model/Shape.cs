@@ -20,13 +20,5 @@
         {
             return new double[] { };
         }
-
-        public virtual void SetLength(double length)
-        {
-        }
-
-        public virtual void SetLength(double length, double length2, double length3)
-        {
-        }
     }
 }

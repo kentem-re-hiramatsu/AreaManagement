@@ -1,4 +1,7 @@
-﻿namespace AreaManagement.Model
+﻿using AreaManagement1;
+using System;
+
+namespace AreaManagement.Model
 {
     public class Quadrilarea : Shape
     {
@@ -6,8 +9,12 @@
 
         public Quadrilarea(double sideLength)
         {
+            if (sideLength < 0)
+            {
+                throw new Exception(Consts.MESSAGE_PLEASENUMVER);
+            }
             _sideLength = sideLength;
-            this._shapeName = ShapeEnum.ShapeNameEnum.四角形;
+            _shapeName = ShapeEnum.ShapeNameEnum.四角形;
         }
 
         public override double GetArea()
@@ -20,9 +27,13 @@
             return new double[] { _sideLength };
         }
 
-        public override void SetLength(double Length)
+        public void SetLength(double length)
         {
-            _sideLength = Length;
+            if (length < 0)
+            {
+                throw new Exception(Consts.MESSAGE_PLEASENUMVER);
+            }
+            _sideLength = length;
         }
     }
 }

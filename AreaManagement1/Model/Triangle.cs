@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AreaManagement1;
+using System;
 
 namespace AreaManagement.Model
 {
@@ -8,8 +9,12 @@ namespace AreaManagement.Model
 
         public Triangle(double sideLength)
         {
+            if (sideLength < 0)
+            {
+                throw new Exception(Consts.MESSAGE_PLEASENUMVER);
+            }
             _sideLength = sideLength;
-            this._shapeName = ShapeEnum.ShapeNameEnum.三角形;
+            _shapeName = ShapeEnum.ShapeNameEnum.三角形;
         }
 
         public override double GetArea()
@@ -22,9 +27,13 @@ namespace AreaManagement.Model
             return new double[] { _sideLength };
         }
 
-        public override void SetLength(double Length)
+        public void SetLength(double length)
         {
-            _sideLength = Length;
+            if (length < 0)
+            {
+                throw new Exception(Consts.MESSAGE_PLEASENUMVER);
+            }
+            _sideLength = length;
         }
     }
 }

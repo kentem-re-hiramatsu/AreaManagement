@@ -1,5 +1,6 @@
 ﻿using AreaManagement;
 using AreaManagement.Model;
+using System;
 
 namespace AreaManagement1.Model
 {
@@ -11,10 +12,14 @@ namespace AreaManagement1.Model
 
         public Trapezoid(double upperBaseLength, double lowerBaseLength, double height)
         {
+            if (upperBaseLength < 0 || lowerBaseLength < 0 || height < 0)
+            {
+                throw new Exception(Consts.MESSAGE_PLEASENUMVER);
+            }
             _upperBaseLength = upperBaseLength;
             _lowerBaseLength = lowerBaseLength;
             _height = height;
-            this._shapeName = ShapeEnum.ShapeNameEnum.台形;
+            _shapeName = ShapeEnum.ShapeNameEnum.台形;
         }
 
         public override double GetArea()
@@ -25,8 +30,12 @@ namespace AreaManagement1.Model
         {
             return new double[] { _upperBaseLength, _lowerBaseLength, _height };
         }
-        public override void SetLength(double height, double upperLength, double lowerLength)
+        public void SetLength(double height, double upperLength, double lowerLength)
         {
+            if (upperLength < 0 || lowerLength < 0 || height < 0)
+            {
+                throw new Exception(Consts.MESSAGE_PLEASENUMVER);
+            }
             _upperBaseLength = upperLength;
             _lowerBaseLength = lowerLength;
             _height = height;

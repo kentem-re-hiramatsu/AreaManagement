@@ -49,9 +49,9 @@ namespace Subform
                     shape = new Trapezoid(inputLength, inputUpperBaseLength, inputLowerBaseLength);
                 }
             }
-            catch
+            catch (Exception m)
             {
-                MessageBox.Show(Consts.MESSAGE_PLEASENUMVER, Consts.ERROR_MESSAGE, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(m.Message, Consts.ERROR_MESSAGE, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             if (shape != null)
