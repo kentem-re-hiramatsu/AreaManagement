@@ -5,13 +5,11 @@ VisualStudioVersion = 17.9.34723.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AreaManagement1", "AreaManagement1.csproj", "{03EEC765-088D-42FA-9BC7-38DD7718D277}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriangleTest", "..\TriangleTest\TriangleTest.csproj", "{A2EE6419-2654-47F2-B086-D1AC6F2E86E4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuadrilarealTest", "..\QuadrilarealTest\QuadrilarealTest.csproj", "{534655EE-318A-4B59-B55D-AADC85016BFF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrapezoidTest", "..\TrapezoidTest\TrapezoidTest.csproj", "{2B9BA065-938F-4491-B26D-63EAB7899416}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShapeManagerTest", "..\ShapeManagerTest\ShapeManagerTest.csproj", "{BF3C8A87-B579-4E10-A3B4-F57D50052A7A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{3EC2FFC5-576C-451B-9DC1-7E311C8F1A92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShapeTest", "..\ShapeTest\ShapeTest.csproj", "{31A4BD70-6AFC-4BCC-B8D2-582A87AD9A88}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,25 +21,21 @@ Global
 		{03EEC765-088D-42FA-9BC7-38DD7718D277}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03EEC765-088D-42FA-9BC7-38DD7718D277}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03EEC765-088D-42FA-9BC7-38DD7718D277}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A2EE6419-2654-47F2-B086-D1AC6F2E86E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A2EE6419-2654-47F2-B086-D1AC6F2E86E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A2EE6419-2654-47F2-B086-D1AC6F2E86E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A2EE6419-2654-47F2-B086-D1AC6F2E86E4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{534655EE-318A-4B59-B55D-AADC85016BFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{534655EE-318A-4B59-B55D-AADC85016BFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{534655EE-318A-4B59-B55D-AADC85016BFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{534655EE-318A-4B59-B55D-AADC85016BFF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2B9BA065-938F-4491-B26D-63EAB7899416}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2B9BA065-938F-4491-B26D-63EAB7899416}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2B9BA065-938F-4491-B26D-63EAB7899416}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2B9BA065-938F-4491-B26D-63EAB7899416}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BF3C8A87-B579-4E10-A3B4-F57D50052A7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BF3C8A87-B579-4E10-A3B4-F57D50052A7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF3C8A87-B579-4E10-A3B4-F57D50052A7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF3C8A87-B579-4E10-A3B4-F57D50052A7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31A4BD70-6AFC-4BCC-B8D2-582A87AD9A88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31A4BD70-6AFC-4BCC-B8D2-582A87AD9A88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31A4BD70-6AFC-4BCC-B8D2-582A87AD9A88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31A4BD70-6AFC-4BCC-B8D2-582A87AD9A88}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BF3C8A87-B579-4E10-A3B4-F57D50052A7A} = {3EC2FFC5-576C-451B-9DC1-7E311C8F1A92}
+		{31A4BD70-6AFC-4BCC-B8D2-582A87AD9A88} = {3EC2FFC5-576C-451B-9DC1-7E311C8F1A92}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F436DA90-0A6F-4BF1-B79A-E2397F7CD1F8}
