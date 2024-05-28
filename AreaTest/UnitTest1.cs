@@ -1,4 +1,5 @@
 ﻿using AreaManagement;
+using AreaManagement.Controller;
 using AreaManagement.Model;
 using AreaManagement1;
 using AreaManagement1.Model;
@@ -72,7 +73,8 @@ namespace AreaTest
         {
             Triangle triangle = new Triangle(4);
 
-            Assert.AreEqual(triangle.GetArea(), 6.928);
+            //三角形の面積は3.89711
+            Assert.AreEqual(triangle.GetArea(), 6.9282);
         }
 
         /// <summary>
@@ -81,9 +83,10 @@ namespace AreaTest
         [TestMethod]
         public void AreaRoundedUpTo4DecimalPlaces_ForValidTriangle()
         {
-            Triangle triangle = new Triangle(4.1);
+            Triangle triangle = new Triangle(4.7);
 
-            Assert.AreEqual(triangle.GetArea(), 7.279);
+            //三角形の面積は9.56525
+            Assert.AreEqual(triangle.GetArea(), 9.5653);
         }
 
         /// <summary>
@@ -94,7 +97,8 @@ namespace AreaTest
         {
             Triangle triangle = new Triangle(5);
 
-            Assert.AreEqual(triangle.GetArea(), 10.825);
+            //三角形の面積は10.82531
+            Assert.AreEqual(triangle.GetArea(), 10.8253);
         }
 
         /// <summary>
@@ -175,6 +179,7 @@ namespace AreaTest
         {
             Quadrilarea quad = new Quadrilarea(4.551);
 
+            //四角形の面積は20.71160
             Assert.AreEqual(quad.GetArea(), 20.7116);
         }
 
@@ -186,6 +191,7 @@ namespace AreaTest
         {
             Quadrilarea quad = new Quadrilarea(4.558);
 
+            //四角形の面積は20.77536
             Assert.AreEqual(quad.GetArea(), 20.7754);
         }
 
@@ -197,6 +203,7 @@ namespace AreaTest
         {
             Quadrilarea quad = new Quadrilarea(5);
 
+            //四角形の面積は25
             Assert.AreEqual(quad.GetArea(), 25);
         }
 
@@ -235,16 +242,6 @@ namespace AreaTest
             }
 
             Assert.AreEqual(expectedMessage, errorMessage);
-        }
-
-        /// <summary>
-        /// 台形のコンストラクタに0の値を入れた場合エラーメッセージが出るか
-        /// </summary>
-        [TestMethod]
-        public void ErrorForNegativeLowerBaseLengthInConstructor()
-        {
-            string expectedMessage = Consts.MESSAGE_PLEASENUMVER;
-            string errorMessage = null;
 
             try
             {
@@ -256,16 +253,6 @@ namespace AreaTest
             }
 
             Assert.AreEqual(expectedMessage, errorMessage);
-        }
-
-        /// <summary>
-        /// 台形のコンストラクタに0の値を入れた場合エラーメッセージが出るか
-        /// </summary>
-        [TestMethod]
-        public void ErrorForNegativeUpperBaseLengthInConstructor()
-        {
-            string expectedMessage = Consts.MESSAGE_PLEASENUMVER;
-            string errorMessage = null;
 
             try
             {
@@ -299,17 +286,6 @@ namespace AreaTest
             }
 
             Assert.AreEqual(expectedMessage, errorMessage);
-        }
-
-        /// <summary>
-        /// 台形のSetLengthに0の値を入れた場合エラーメッセージが出るか
-        /// </summary>
-        [TestMethod]
-        public void ErrorForNegativeLengthInSetUpperLength()
-        {
-            string expectedMessage = Consts.MESSAGE_PLEASENUMVER;
-            string errorMessage = null;
-            Trapezoid trapezoid = new Trapezoid(1, 1, 1);
 
             try
             {
@@ -321,17 +297,6 @@ namespace AreaTest
             }
 
             Assert.AreEqual(expectedMessage, errorMessage);
-        }
-
-        /// <summary>
-        /// 台形のSetLengthに0の値を入れた場合エラーメッセージが出るか
-        /// </summary>
-        [TestMethod]
-        public void ErrorForNegativeLengthInSetHeightLength()
-        {
-            string expectedMessage = Consts.MESSAGE_PLEASENUMVER;
-            string errorMessage = null;
-            Trapezoid trapezoid = new Trapezoid(1, 1, 1);
 
             try
             {
@@ -351,9 +316,9 @@ namespace AreaTest
         [TestMethod]
         public void ReturnNameForValidTriangle()
         {
-            Trapezoid quad = new Trapezoid(1, 1, 1);
+            Trapezoid trapeziod = new Trapezoid(1, 1, 1);
 
-            Assert.AreEqual(quad.GetShapeName(), ShapeNameEnum.台形);
+            Assert.AreEqual(trapeziod.GetShapeName(), ShapeNameEnum.台形);
         }
 
         /// <summary>
@@ -362,9 +327,10 @@ namespace AreaTest
         [TestMethod]
         public void AreaRoundedDownTo4DecimalPlaces_ForValidTriangle()
         {
-            Trapezoid quad = new Trapezoid(1.111, 1.111, 1.111);
+            Trapezoid trapeziod = new Trapezoid(1.111, 1.111, 1.111);
 
-            Assert.AreEqual(quad.GetArea(), 1.2343);
+            //台形の面積の値1.23432
+            Assert.AreEqual(trapeziod.GetArea(), 1.2343);
         }
 
         /// <summary>
@@ -373,9 +339,10 @@ namespace AreaTest
         [TestMethod]
         public void AreaRoundedUpTo4DecimalPlaces_ForValidTriangle()
         {
-            Trapezoid quad = new Trapezoid(2.222, 2.222, 2.222);
+            Trapezoid trapeziod = new Trapezoid(2.222, 2.222, 2.222);
 
-            Assert.AreEqual(quad.GetArea(), 4.9373);
+            //台形の面積の値4.93728
+            Assert.AreEqual(trapeziod.GetArea(), 4.9373);
         }
 
         /// <summary>
@@ -384,9 +351,10 @@ namespace AreaTest
         [TestMethod]
         public void TriangleAreaWithValidSides_ReturnsTriangleArea()
         {
-            Trapezoid quad = new Trapezoid(2, 2, 2);
+            Trapezoid trapeziod = new Trapezoid(2, 2, 2);
 
-            Assert.AreEqual(quad.GetArea(), 4);
+            //台形の面積の値4.0
+            Assert.AreEqual(trapeziod.GetArea(), 4);
         }
 
         /// <summary>
@@ -395,8 +363,8 @@ namespace AreaTest
         [TestMethod]
         public void ReturnUpperLengthForValidTriangle()
         {
-            Trapezoid quad = new Trapezoid(1, 2, 3);
-            var getLength = (quad.GetLength())[0];
+            Trapezoid trapeziod = new Trapezoid(1, 2, 3);
+            var getLength = (trapeziod.GetLength())[0];
 
             Assert.AreEqual(getLength, 1);
         }
@@ -407,8 +375,8 @@ namespace AreaTest
         [TestMethod]
         public void ReturnLowerLengthForValidTriangle()
         {
-            Trapezoid quad = new Trapezoid(1, 2, 3);
-            var getLength = quad.GetLength()[1];
+            Trapezoid trapeziod = new Trapezoid(1, 2, 3);
+            var getLength = trapeziod.GetLength()[1];
 
             Assert.AreEqual(getLength, 2);
         }
@@ -419,10 +387,126 @@ namespace AreaTest
         [TestMethod]
         public void ReturnHeightLengthForValidTriangle()
         {
-            Trapezoid quad = new Trapezoid(1, 2, 3);
-            var getLength = quad.GetLength()[2];
+            Trapezoid trapeziod = new Trapezoid(1, 2, 3);
+            var getLength = trapeziod.GetLength()[2];
 
             Assert.AreEqual(getLength, 3);
+        }
+    }
+    [TestClass]
+    public class ShapeManagerUnitTest
+    {
+        ShapeManager shapeMana = new ShapeManager();
+
+        /// <summary>
+        /// 正しくShapeListに三角形の面積が入っているか
+        /// </summary>
+        [TestMethod]
+        public void TriangleAreaStoredCorrectlyInDobleShapeList()
+        {
+            Triangle triangle = new Triangle(3);
+            shapeMana.AddShapeList(triangle);
+            var getShape = shapeMana.GetShape(0);
+            Assert.AreEqual(getShape.GetArea(), 3.8971);
+        }
+
+        /// <summary>
+        /// 正しくShapeListに三角形の名前が入っているか
+        /// </summary>
+        [TestMethod]
+        public void TriangleNameStoredCorrectlyInShapeList()
+        {
+            Triangle triangle = new Triangle(3);
+            shapeMana.AddShapeList(triangle);
+            var getShape = shapeMana.GetShape(0);
+            Assert.AreEqual(getShape.GetShapeName(), ShapeNameEnum.三角形);
+        }
+
+        /// <summary>
+        /// 正しくShapeListに四角形の面積が入っているか
+        /// </summary>
+        [TestMethod]
+        public void QuadAreaStoredCorrectlyInShapeList()
+        {
+            Quadrilarea quad = new Quadrilarea(3);
+            shapeMana.AddShapeList(quad);
+            var getShape = shapeMana.GetShape(0);
+            Assert.AreEqual(getShape.GetArea(), 9);
+        }
+
+        /// <summary>
+        /// 正しくShapeListに四角形のdouble型の面積が入っているか
+        /// </summary>
+        [TestMethod]
+        public void QuadAreaStoredCorrectlyInDoubleShapeList()
+        {
+            Quadrilarea quad = new Quadrilarea(5.123);
+            shapeMana.AddShapeList(quad);
+            var getShape = shapeMana.GetShape(0);
+            Assert.AreEqual(getShape.GetArea(), 26.2451);
+        }
+
+        /// <summary>
+        /// 正しくShapeListに四角形の名前が入っているか
+        /// </summary>
+        [TestMethod]
+        public void QuadNameStoredCorrectlyInShapeList()
+        {
+            Quadrilarea quad = new Quadrilarea(3);
+            shapeMana.AddShapeList(quad);
+            var getShape = shapeMana.GetShape(0);
+            Assert.AreEqual(getShape.GetShapeName(), ShapeNameEnum.四角形);
+        }
+
+        /// <summary>
+        /// 正しくShapeListに台形の面積が入っているか
+        /// </summary>
+        [TestMethod]
+        public void TrapezoidAreaStoredCorrectlyInShapeList()
+        {
+            Trapezoid trapeziod = new Trapezoid(2, 2, 2);
+            shapeMana.AddShapeList(trapeziod);
+            var getShape = shapeMana.GetShape(0);
+            Assert.AreEqual(getShape.GetArea(), 4);
+        }
+
+        /// <summary>
+        /// 正しくShapeListに台形のdouble型の面積が入っているか
+        /// </summary>
+        [TestMethod]
+        public void TrapezoidAreaStoredCorrectlyInDoubleShapeList()
+        {
+            Trapezoid quad = new Trapezoid(2.1, 2.1, 2.1);
+            shapeMana.AddShapeList(quad);
+            var getShape = shapeMana.GetShape(0);
+            Assert.AreEqual(getShape.GetArea(), 4.41);
+        }
+
+        /// <summary>
+        /// 正しくShapeListに台形の名前が入っているか
+        /// </summary>
+        [TestMethod]
+        public void TrapezoidNameStoredCorrectlyInShapeList()
+        {
+            Trapezoid trapeziod = new Trapezoid(1, 2, 3);
+            shapeMana.AddShapeList(trapeziod);
+            var getShape = shapeMana.GetShape(0);
+            Assert.AreEqual(getShape.GetShapeName(), ShapeNameEnum.台形);
+        }
+
+        /// <summary>
+        /// 正しくShapeListに複数図形が入っているか
+        /// </summary>
+        [TestMethod]
+        public void ValidShapesAddedToShapeList()
+        {
+            Trapezoid trapeziod = new Trapezoid(1, 2, 3);
+            Triangle triangle = new Triangle(3);
+            Quadrilarea quad = new Quadrilarea(3);
+            shapeMana.AddShapeList(triangle);
+            shapeMana.AddShapeList(quad);
+            var getShape = shapeMana.GetShape(0);
+            Assert.AreEqual(getShape.GetShapeName(), ShapeNameEnum.台形);
         }
     }
 }

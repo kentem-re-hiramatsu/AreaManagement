@@ -32,7 +32,7 @@ namespace AreaManagement.Model
 
         public override double GetArea()
         {
-            return Math.Round((Math.Sqrt(3) / 4 * Math.Pow(_sideLength, 2)), 3);
+            return Math.Round((Math.Sqrt(3) / 4 * Math.Pow(_sideLength, 2)), 4);
         }
     }
 }

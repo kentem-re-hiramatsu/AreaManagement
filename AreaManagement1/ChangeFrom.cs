@@ -30,11 +30,11 @@ namespace ChangeForm
             var getList = shapeMana.GetShape(selectedIndex);
             var shapeName = getList.GetShapeName();
 
-            double[] trapezoidLineLength = ((Trapezoid)getList).GetLength();
             double singleLength;
 
             if (shapeName == ShapeNameEnum.台形)
             {
+                double[] trapezoidLineLength = ((Trapezoid)getList).GetLength();
                 TrapezoidRadio.Checked = true;
 
                 textBox2.Enabled = true;
