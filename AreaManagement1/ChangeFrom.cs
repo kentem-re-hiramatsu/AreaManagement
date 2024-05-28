@@ -32,28 +32,39 @@ namespace ChangeForm
 
             double singleLength;
 
-            if (shapeName == ShapeNameEnum.台形)
+            switch (shapeName)
             {
-                double[] trapezoidLineLength = ((Trapezoid)getList).GetLength();
-                TrapezoidRadio.Checked = true;
+                case ShapeNameEnum.四角形:
+                    {
+                        singleLength = ((Quadrilarea)getList).Length;
+                        textBox1.Text = singleLength.ToString();
+                    }
+                    break;
 
-                textBox2.Enabled = true;
-                textBox3.Enabled = true;
+                case ShapeNameEnum.三角形:
+                    {
+                        TriangleRadio.Checked = true;
+                        singleLength = ((Triangle)getList).Length;
+                        textBox1.Text = singleLength.ToString();
+                    }
+                    break;
 
-                textBox1.Text = trapezoidLineLength[0].ToString();
-                textBox2.Text = trapezoidLineLength[1].ToString();
-                textBox3.Text = trapezoidLineLength[2].ToString();
-            }
-            else if (shapeName == ShapeNameEnum.三角形)
-            {
-                TriangleRadio.Checked = true;
-                singleLength = ((Triangle)getList).Length;
-                textBox1.Text = singleLength.ToString();
-            }
-            else
-            {
-                singleLength = ((Quadrilarea)getList).Length;
-                textBox1.Text = singleLength.ToString();
+                case ShapeNameEnum.台形:
+                    {
+                        double[] trapezoidLineLength = ((Trapezoid)getList).GetLength();
+                        TrapezoidRadio.Checked = true;
+
+                        textBox2.Enabled = true;
+                        textBox3.Enabled = true;
+
+                        textBox1.Text = trapezoidLineLength[0].ToString();
+                        textBox2.Text = trapezoidLineLength[1].ToString();
+                        textBox3.Text = trapezoidLineLength[2].ToString();
+                    }
+                    break;
+
+                default:
+                    break;
             }
         }
 
@@ -88,6 +99,7 @@ namespace ChangeForm
                     int inputhLowerBaseLength = int.Parse(textBox3.Text);
                     ((Trapezoid)slectedShape).SetLength(inputLength, inputhUpperBaseLength, inputhLowerBaseLength);
                 }
+
                 DialogResult = DialogResult.OK;
                 Close();
             }

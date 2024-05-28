@@ -77,7 +77,7 @@
             this.TriangleRadio.TabStop = true;
             this.TriangleRadio.Text = "三角形";
             this.TriangleRadio.UseVisualStyleBackColor = true;
-            this.TriangleRadio.CheckedChanged += new System.EventHandler(this.TrapezoidRadioButtonChange);
+            this.TriangleRadio.CheckedChanged += new System.EventHandler(this.TriangleRadio_CheckedChanged);
             // 
             // QuadRadio
             // 
@@ -90,7 +90,7 @@
             this.QuadRadio.TabStop = true;
             this.QuadRadio.Text = "四角形";
             this.QuadRadio.UseVisualStyleBackColor = true;
-            this.QuadRadio.CheckedChanged += new System.EventHandler(this.TrapezoidRadioButtonChange);
+            this.QuadRadio.CheckedChanged += new System.EventHandler(this.QuadRadio_CheckedChanged);
             // 
             // label1
             // 

@@ -1,4 +1,5 @@
-﻿using AreaManagement.Controller;
+﻿using AreaManagement;
+using AreaManagement.Controller;
 using AreaManagement.Model;
 using AreaManagement1;
 using AreaManagement1.Model;
@@ -10,6 +11,8 @@ namespace Subform
     public partial class SubForm : Form
     {
         ShapeManager shapeMana = null;
+        ShapeNameEnum shapeName;
+
         public SubForm(ShapeManager shapeMana)
         {
             InitializeComponent();
@@ -34,20 +37,29 @@ namespace Subform
             {
                 int inputLength = int.Parse(LengthTextBox.Text);
 
-                ///ここをswich文にする
-                if (QuadRadio.Checked)
+                switch (shapeName)
                 {
-                    shape = new Quadrilarea(inputLength);
-                }
-                else if (TriangleRadio.Checked)
-                {
-                    shape = new Triangle(inputLength);
-                }
-                else if (TrapezoidRadio.Checked)
-                {
-                    int inputUpperBaseLength = int.Parse(upperBaseLengthtextBox.Text);
-                    int inputLowerBaseLength = int.Parse(lowerBaseLengthtextBox.Text);
-                    shape = new Trapezoid(inputLength, inputUpperBaseLength, inputLowerBaseLength);
+                    case ShapeNameEnum.四角形:
+                        {
+                            shape = new Quadrilarea(inputLength);
+                        }
+                        break;
+
+                    case ShapeNameEnum.三角形:
+                        {
+                            shape = new Triangle(inputLength);
+                        }
+                        break;
+
+                    case ShapeNameEnum.台形:
+                        {
+                            int inputUpperBaseLength = int.Parse(upperBaseLengthtextBox.Text);
+                            int inputLowerBaseLength = int.Parse(lowerBaseLengthtextBox.Text);
+                            shape = new Trapezoid(inputLength, inputUpperBaseLength, inputLowerBaseLength);
+                        }
+                        break;
+
+                    default: break;
                 }
             }
             catch (Exception m)
@@ -84,6 +96,21 @@ namespace Subform
         {
             TrapezoidRadioButtonChange();
             OkButtonChange();
+            shapeName = ShapeNameEnum.台形;
+        }
+
+        private void QuadRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            TrapezoidRadioButtonChange();
+            OkButtonChange();
+            shapeName = ShapeNameEnum.四角形;
+        }
+
+        private void TriangleRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            TrapezoidRadioButtonChange();
+            OkButtonChange();
+            shapeName = ShapeNameEnum.三角形;
         }
     }
 }
