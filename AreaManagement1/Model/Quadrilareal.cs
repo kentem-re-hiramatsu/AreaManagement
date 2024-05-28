@@ -7,33 +7,32 @@ namespace AreaManagement.Model
     {
         private double _sideLength;
 
+        public double Length
+        {
+            get { return _sideLength; }
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new Exception(Consts.MESSAGE_PLEASENUMVER);
+                }
+                _sideLength = value;
+            }
+        }
+
         public Quadrilarea(double sideLength)
         {
-            if (sideLength < 0)
+            if (sideLength <= 0)
             {
                 throw new Exception(Consts.MESSAGE_PLEASENUMVER);
             }
             _sideLength = sideLength;
-            _shapeName = ShapeEnum.ShapeNameEnum.四角形;
+            _shapeName = ShapeNameEnum.四角形;
         }
 
         public override double GetArea()
         {
-            return _sideLength * _sideLength;
-        }
-
-        public override double[] GetLength()
-        {
-            return new double[] { _sideLength };
-        }
-
-        public void SetLength(double length)
-        {
-            if (length < 0)
-            {
-                throw new Exception(Consts.MESSAGE_PLEASENUMVER);
-            }
-            _sideLength = length;
+            return Math.Round(_sideLength * _sideLength, 4);
         }
     }
 }

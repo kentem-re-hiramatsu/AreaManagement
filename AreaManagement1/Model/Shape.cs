@@ -1,24 +1,16 @@
 ﻿namespace AreaManagement.Model
 {
-    public class Shape
+    public abstract class Shape
     {
-        protected ShapeEnum.ShapeNameEnum _shapeName;
+        protected ShapeNameEnum _shapeName;
 
         public Shape() { }
 
-        public virtual double GetArea()
-        {
-            return 0;
-        }
+        public abstract double GetArea();
 
-        public ShapeEnum.ShapeNameEnum GetShapeName()
+        public ShapeNameEnum GetShapeName()
         {
             return _shapeName;
-        }
-
-        public virtual double[] GetLength()
-        {
-            return new double[] { };
         }
     }
 }

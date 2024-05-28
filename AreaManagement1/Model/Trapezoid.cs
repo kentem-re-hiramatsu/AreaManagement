@@ -12,27 +12,27 @@ namespace AreaManagement1.Model
 
         public Trapezoid(double upperBaseLength, double lowerBaseLength, double height)
         {
-            if (upperBaseLength < 0 || lowerBaseLength < 0 || height < 0)
+            if (upperBaseLength <= 0 || lowerBaseLength <= 0 || height <= 0)
             {
                 throw new Exception(Consts.MESSAGE_PLEASENUMVER);
             }
             _upperBaseLength = upperBaseLength;
             _lowerBaseLength = lowerBaseLength;
             _height = height;
-            _shapeName = ShapeEnum.ShapeNameEnum.台形;
+            _shapeName = ShapeNameEnum.台形;
         }
 
         public override double GetArea()
         {
-            return 0.5 * (_upperBaseLength + _lowerBaseLength) * _height;
+            return Math.Round(0.5 * (_upperBaseLength + _lowerBaseLength) * _height, 4);
         }
-        public override double[] GetLength()
+        public double[] GetLength()
         {
             return new double[] { _upperBaseLength, _lowerBaseLength, _height };
         }
         public void SetLength(double height, double upperLength, double lowerLength)
         {
-            if (upperLength < 0 || lowerLength < 0 || height < 0)
+            if (upperLength <= 0 || lowerLength <= 0 || height <= 0)
             {
                 throw new Exception(Consts.MESSAGE_PLEASENUMVER);
             }

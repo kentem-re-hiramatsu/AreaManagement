@@ -34,6 +34,7 @@ namespace Subform
             {
                 int inputLength = int.Parse(LengthTextBox.Text);
 
+                ///ここをswich文にする
                 if (QuadRadio.Checked)
                 {
                     shape = new Quadrilarea(inputLength);

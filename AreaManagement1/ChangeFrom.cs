@@ -30,23 +30,31 @@ namespace ChangeForm
             var getList = shapeMana.GetShape(selectedIndex);
             var shapeName = getList.GetShapeName();
 
-            double[] lineLength = getList.GetLength();
+            double[] trapezoidLineLength = ((Trapezoid)getList).GetLength();
+            double singleLength;
 
-            if (shapeName == ShapeEnum.ShapeNameEnum.台形)
+            if (shapeName == ShapeNameEnum.台形)
             {
                 TrapezoidRadio.Checked = true;
 
                 textBox2.Enabled = true;
                 textBox3.Enabled = true;
 
-                textBox2.Text = lineLength[1].ToString();
-                textBox3.Text = lineLength[2].ToString();
+                textBox1.Text = trapezoidLineLength[0].ToString();
+                textBox2.Text = trapezoidLineLength[1].ToString();
+                textBox3.Text = trapezoidLineLength[2].ToString();
             }
-            if (shapeName == ShapeEnum.ShapeNameEnum.三角形)
+            else if (shapeName == ShapeNameEnum.三角形)
             {
                 TriangleRadio.Checked = true;
+                singleLength = ((Triangle)getList).Length;
+                textBox1.Text = singleLength.ToString();
             }
-            textBox1.Text = lineLength[0].ToString();
+            else
+            {
+                singleLength = ((Quadrilarea)getList).Length;
+                textBox1.Text = singleLength.ToString();
+            }
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -63,22 +71,22 @@ namespace ChangeForm
         {
             try
             {
-                var getlist = shapeMana.GetShape(selectedIndex);
+                var slectedShape = shapeMana.GetShape(selectedIndex);
                 int inputLength = int.Parse(textBox1.Text);
 
                 if (QuadRadio.Checked)
                 {
-                    ((Quadrilarea)getlist).SetLength(inputLength);
+                    ((Quadrilarea)slectedShape).Length = inputLength;
                 }
                 else if (TriangleRadio.Checked)
                 {
-                    ((Triangle)getlist).SetLength(inputLength);
+                    ((Triangle)slectedShape).Length = inputLength;
                 }
                 else
                 {
                     int inputhUpperBaseLength = int.Parse(textBox2.Text);
                     int inputhLowerBaseLength = int.Parse(textBox3.Text);
-                    ((Trapezoid)getlist).SetLength(inputLength, inputhUpperBaseLength, inputhLowerBaseLength);
+                    ((Trapezoid)slectedShape).SetLength(inputLength, inputhUpperBaseLength, inputhLowerBaseLength);
                 }
                 DialogResult = DialogResult.OK;
                 Close();
