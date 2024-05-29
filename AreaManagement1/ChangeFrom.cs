@@ -12,6 +12,7 @@ namespace ChangeForm
     {
         ShapeManager shapeMana;
         int selectedIndex;
+        ShapeNameEnum shapeName;
 
         public ChangeFrom(ShapeManager shapeMana, int selectedIndex)
         {
@@ -38,6 +39,7 @@ namespace ChangeForm
                     {
                         singleLength = ((Quadrilarea)getList).Length;
                         textBox1.Text = singleLength.ToString();
+                        this.shapeName = ShapeNameEnum.四角形;
                     }
                     break;
 
@@ -46,20 +48,22 @@ namespace ChangeForm
                         TriangleRadio.Checked = true;
                         singleLength = ((Triangle)getList).Length;
                         textBox1.Text = singleLength.ToString();
+                        this.shapeName = ShapeNameEnum.三角形;
                     }
                     break;
 
                 case ShapeNameEnum.台形:
                     {
-                        double[] trapezoidLineLength = ((Trapezoid)getList).GetLength();
                         TrapezoidRadio.Checked = true;
 
                         textBox2.Enabled = true;
                         textBox3.Enabled = true;
 
-                        textBox1.Text = trapezoidLineLength[0].ToString();
-                        textBox2.Text = trapezoidLineLength[1].ToString();
-                        textBox3.Text = trapezoidLineLength[2].ToString();
+                        textBox1.Text = ((Trapezoid)getList).Height.ToString();
+                        textBox2.Text = ((Trapezoid)getList).UpperBaseLength.ToString();
+                        textBox3.Text = ((Trapezoid)getList).LowerBaseLength.ToString();
+
+                        this.shapeName = ShapeNameEnum.台形;
                     }
                     break;
 
@@ -85,19 +89,28 @@ namespace ChangeForm
                 var slectedShape = shapeMana.GetShape(selectedIndex);
                 int inputLength = int.Parse(textBox1.Text);
 
-                if (QuadRadio.Checked)
+                switch (shapeName)
                 {
-                    ((Quadrilarea)slectedShape).Length = inputLength;
-                }
-                else if (TriangleRadio.Checked)
-                {
-                    ((Triangle)slectedShape).Length = inputLength;
-                }
-                else
-                {
-                    int inputhUpperBaseLength = int.Parse(textBox2.Text);
-                    int inputhLowerBaseLength = int.Parse(textBox3.Text);
-                    ((Trapezoid)slectedShape).SetLength(inputLength, inputhUpperBaseLength, inputhLowerBaseLength);
+                    case ShapeNameEnum.四角形:
+                        {
+                            ((Quadrilarea)slectedShape).Length = inputLength;
+                        }
+                        break;
+
+                    case ShapeNameEnum.三角形:
+                        {
+                            ((Triangle)slectedShape).Length = inputLength;
+                        }
+                        break;
+
+                    case ShapeNameEnum.台形:
+                        {
+                            int inputhUpperBaseLength = int.Parse(textBox2.Text);
+                            int inputhLowerBaseLength = int.Parse(textBox3.Text);
+                            ((Trapezoid)slectedShape).SetLength(inputLength, inputhUpperBaseLength, inputhLowerBaseLength);
+                        }
+                        break;
+                    default: break;
                 }
 
                 DialogResult = DialogResult.OK;

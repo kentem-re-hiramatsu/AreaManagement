@@ -150,7 +150,7 @@ namespace TrapezoidTest.Test
         public void ReturnUpperLengthForValidTriangle()
         {
             Trapezoid trapeziod = new Trapezoid(1, 2, 3);
-            var length = (trapeziod.GetLength())[0];
+            var length = trapeziod.UpperBaseLength;
 
             Assert.AreEqual(length, 1);
         }
@@ -162,7 +162,7 @@ namespace TrapezoidTest.Test
         public void ReturnLowerLengthForValidTriangle()
         {
             Trapezoid trapeziod = new Trapezoid(1, 2, 3);
-            var length = trapeziod.GetLength()[1];
+            var length = trapeziod.LowerBaseLength;
 
             Assert.AreEqual(length, 2);
         }
@@ -174,7 +174,7 @@ namespace TrapezoidTest.Test
         public void ReturnHeightLengthForValidTriangle()
         {
             Trapezoid trapeziod = new Trapezoid(1, 2, 3);
-            var length = trapeziod.GetLength()[2];
+            var length = trapeziod.Height;
 
             Assert.AreEqual(length, 3);
         }
