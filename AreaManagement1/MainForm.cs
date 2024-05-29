@@ -45,6 +45,7 @@ namespace AreaManagement1
 
             var sumArea = shapeMana.GetSumArea();
             TotalLabel.Text = $"Total： {sumArea}";
+            ClearButton.Enabled = shapeMana.GetShapeListCount() > 0;
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
@@ -85,6 +86,17 @@ namespace AreaManagement1
                 UpdateView();
             }
             DeleteAndChangeButtonChange();
+        }
+
+        private void ClearButton_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("すべて削除されますがよろしいですか？", "確認", MessageBoxButtons.OKCancel, MessageBoxIcon.Exclamation);
+
+            if (dialogResult == DialogResult.OK)
+            {
+                shapeMana.AllRemoveShape();
+                UpdateView();
+            }
         }
     }
 }

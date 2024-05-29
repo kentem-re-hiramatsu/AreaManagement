@@ -35,6 +35,7 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ChangeButton = new System.Windows.Forms.Button();
+            this.ClearButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AddButton
@@ -105,11 +106,24 @@
             this.ChangeButton.UseVisualStyleBackColor = true;
             this.ChangeButton.Click += new System.EventHandler(this.ChangeButton_Click);
             // 
+            // ClearButton
+            // 
+            this.ClearButton.Enabled = false;
+            this.ClearButton.Location = new System.Drawing.Point(330, 202);
+            this.ClearButton.Name = "ClearButton";
+            this.ClearButton.Size = new System.Drawing.Size(50, 40);
+            this.ClearButton.TabIndex = 5;
+            this.ClearButton.TabStop = false;
+            this.ClearButton.Text = "クリア";
+            this.ClearButton.UseVisualStyleBackColor = true;
+            this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(462, 265);
+            this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.ChangeButton);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.TotalLabel);
@@ -132,6 +146,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.Button ChangeButton;
+        private System.Windows.Forms.Button ClearButton;
     }
 }
 
