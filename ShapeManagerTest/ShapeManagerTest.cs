@@ -109,6 +109,29 @@ namespace ShapeManagerTest.Test
         }
 
         /// <summary>
+        ///正しくすべてのListが削除されているか
+        /// </summary>
+        [TestMethod]
+        public void AllRemovedListTest()
+        {
+            Trapezoid trapeziod = new Trapezoid(1, 2, 3);
+            Triangle triangle = new Triangle(3);
+            Quadrilarea quad = new Quadrilarea(3);
+
+            shapeMana.AddShapeList(trapeziod);
+            shapeMana.AddShapeList(triangle);
+            shapeMana.AddShapeList(quad);
+
+            var shapeListCount = shapeMana.GetShapeListCount();
+            Assert.AreEqual(shapeListCount, 3);
+
+            shapeMana.AllRemoveShape();
+
+            shapeListCount = shapeMana.GetShapeListCount();
+            Assert.AreEqual(shapeListCount, 0);
+        }
+
+        /// <summary>
         ///正しく面積合計が出せるか
         /// </summary>
         [TestMethod]
