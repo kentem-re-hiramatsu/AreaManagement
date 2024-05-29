@@ -23,14 +23,14 @@ namespace ChangeForm
 
         private void ChangeFrom_Load(object sender, EventArgs e)
         {
-            SetInitialValueInTextBox();
+            SetInitialValue();
             SetInitialChecked();
         }
 
-        public void SetInitialValueInTextBox()
+        private void SetInitialValue()
         {
-            var list = shapeMana.GetShape(_selectedIndex);
-            var shapeName = list.GetShapeName();
+            var selectedShape = shapeMana.GetShape(_selectedIndex);
+            var shapeName = selectedShape.GetShapeName();
 
             double singleLength;
 
@@ -38,7 +38,7 @@ namespace ChangeForm
             {
                 case ShapeNameEnum.四角形:
                     {
-                        singleLength = ((Quadrilarea)list).Length;
+                        singleLength = ((Quadrilarea)selectedShape).Length;
                         LengthTextBox.Text = singleLength.ToString();
                         this.shapeName = ShapeNameEnum.四角形;
                     }
@@ -46,7 +46,7 @@ namespace ChangeForm
 
                 case ShapeNameEnum.三角形:
                     {
-                        singleLength = ((Triangle)list).Length;
+                        singleLength = ((Triangle)selectedShape).Length;
                         LengthTextBox.Text = singleLength.ToString();
                         this.shapeName = ShapeNameEnum.三角形;
                     }
@@ -57,11 +57,20 @@ namespace ChangeForm
                         upperBaseLengthtextBox.Enabled = true;
                         lowerBaseLengthtextBox.Enabled = true;
 
-                        LengthTextBox.Text = ((Trapezoid)list).Height.ToString();
-                        upperBaseLengthtextBox.Text = ((Trapezoid)list).UpperBaseLength.ToString();
-                        lowerBaseLengthtextBox.Text = ((Trapezoid)list).LowerBaseLength.ToString();
+                        LengthTextBox.Text = ((Trapezoid)selectedShape).Height.ToString();
+                        upperBaseLengthtextBox.Text = ((Trapezoid)selectedShape).UpperBaseLength.ToString();
+                        lowerBaseLengthtextBox.Text = ((Trapezoid)selectedShape).LowerBaseLength.ToString();
 
                         this.shapeName = ShapeNameEnum.台形;
+                    }
+                    break;
+
+                case ShapeNameEnum.円:
+                    {
+                        singleLength = ((Circle)selectedShape).Length;
+                        LengthTextBox.Text = singleLength.ToString();
+                        SideLengthLabel.Text = "半径の長さ";
+                        this.shapeName = ShapeNameEnum.円;
                     }
                     break;
 
@@ -74,6 +83,7 @@ namespace ChangeForm
         {
             TriangleRadio.Checked = shapeName == ShapeNameEnum.三角形;
             TrapezoidRadio.Checked = shapeName == ShapeNameEnum.台形;
+            CircleRadio.Checked = shapeName == ShapeNameEnum.円;
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -109,6 +119,13 @@ namespace ChangeForm
                             ((Trapezoid)slectedShape).SetLength(inputLength, inputhUpperBaseLength, inputhLowerBaseLength);
                         }
                         break;
+
+                    case ShapeNameEnum.円:
+                        {
+                            ((Circle)slectedShape).Length = inputLength;
+                        }
+                        break;
+
                     default: break;
                 }
 
@@ -123,7 +140,7 @@ namespace ChangeForm
 
         private void LengthTextBox_TextChanged(object sender, EventArgs e)
         {
-            OkButton.Enabled = OkButton.Enabled = (TrapezoidRadio.Checked && LengthTextBox.Text.Length > 0 && upperBaseLengthtextBox.Text.Length > 0 && lowerBaseLengthtextBox.Text.Length > 0) || ((TriangleRadio.Checked || QuadRadio.Checked) && LengthTextBox.Text.Length > 0);
+            OkButton.Enabled = (TrapezoidRadio.Checked && LengthTextBox.Text.Length > 0 && upperBaseLengthtextBox.Text.Length > 0 && lowerBaseLengthtextBox.Text.Length > 0) || ((TriangleRadio.Checked || QuadRadio.Checked || CircleRadio.Checked) && LengthTextBox.Text.Length > 0);
         }
     }
 }

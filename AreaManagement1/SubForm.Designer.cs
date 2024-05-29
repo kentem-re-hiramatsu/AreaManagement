@@ -32,7 +32,7 @@
             this.TrapezoidRadio = new System.Windows.Forms.RadioButton();
             this.TriangleRadio = new System.Windows.Forms.RadioButton();
             this.QuadRadio = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
+            this.SideLengthLabel = new System.Windows.Forms.Label();
             this.LengthTextBox = new System.Windows.Forms.TextBox();
             this.OkButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
@@ -40,17 +40,19 @@
             this.label3 = new System.Windows.Forms.Label();
             this.upperBaseLengthtextBox = new System.Windows.Forms.TextBox();
             this.lowerBaseLengthtextBox = new System.Windows.Forms.TextBox();
+            this.CircleRadio = new System.Windows.Forms.RadioButton();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.CircleRadio);
             this.groupBox1.Controls.Add(this.TrapezoidRadio);
             this.groupBox1.Controls.Add(this.TriangleRadio);
             this.groupBox1.Controls.Add(this.QuadRadio);
             this.groupBox1.Location = new System.Drawing.Point(32, 25);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 71);
+            this.groupBox1.Size = new System.Drawing.Size(258, 71);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "種類";
@@ -92,18 +94,18 @@
             this.QuadRadio.UseVisualStyleBackColor = true;
             this.QuadRadio.CheckedChanged += new System.EventHandler(this.QuadRadio_CheckedChanged);
             // 
-            // label1
+            // SideLengthLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 118);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 12);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "一辺の長さ";
+            this.SideLengthLabel.AutoSize = true;
+            this.SideLengthLabel.Location = new System.Drawing.Point(59, 105);
+            this.SideLengthLabel.Name = "SideLengthLabel";
+            this.SideLengthLabel.Size = new System.Drawing.Size(59, 12);
+            this.SideLengthLabel.TabIndex = 1;
+            this.SideLengthLabel.Text = "一辺の長さ";
             // 
             // LengthTextBox
             // 
-            this.LengthTextBox.Location = new System.Drawing.Point(104, 115);
+            this.LengthTextBox.Location = new System.Drawing.Point(131, 102);
             this.LengthTextBox.Name = "LengthTextBox";
             this.LengthTextBox.Size = new System.Drawing.Size(128, 19);
             this.LengthTextBox.TabIndex = 2;
@@ -112,7 +114,7 @@
             // OkButton
             // 
             this.OkButton.Enabled = false;
-            this.OkButton.Location = new System.Drawing.Point(32, 201);
+            this.OkButton.Location = new System.Drawing.Point(59, 188);
             this.OkButton.Name = "OkButton";
             this.OkButton.Size = new System.Drawing.Size(75, 45);
             this.OkButton.TabIndex = 3;
@@ -122,7 +124,7 @@
             // 
             // CancelButton
             // 
-            this.CancelButton.Location = new System.Drawing.Point(157, 201);
+            this.CancelButton.Location = new System.Drawing.Point(184, 188);
             this.CancelButton.Name = "CancelButton";
             this.CancelButton.Size = new System.Drawing.Size(75, 45);
             this.CancelButton.TabIndex = 4;
@@ -133,7 +135,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 144);
+            this.label2.Location = new System.Drawing.Point(59, 131);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 12);
             this.label2.TabIndex = 5;
@@ -142,7 +144,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(30, 173);
+            this.label3.Location = new System.Drawing.Point(57, 160);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 12);
             this.label3.TabIndex = 6;
@@ -151,7 +153,7 @@
             // upperBaseLengthtextBox
             // 
             this.upperBaseLengthtextBox.Enabled = false;
-            this.upperBaseLengthtextBox.Location = new System.Drawing.Point(104, 144);
+            this.upperBaseLengthtextBox.Location = new System.Drawing.Point(131, 131);
             this.upperBaseLengthtextBox.Name = "upperBaseLengthtextBox";
             this.upperBaseLengthtextBox.Size = new System.Drawing.Size(128, 19);
             this.upperBaseLengthtextBox.TabIndex = 7;
@@ -160,17 +162,29 @@
             // lowerBaseLengthtextBox
             // 
             this.lowerBaseLengthtextBox.Enabled = false;
-            this.lowerBaseLengthtextBox.Location = new System.Drawing.Point(104, 170);
+            this.lowerBaseLengthtextBox.Location = new System.Drawing.Point(131, 157);
             this.lowerBaseLengthtextBox.Name = "lowerBaseLengthtextBox";
             this.lowerBaseLengthtextBox.Size = new System.Drawing.Size(128, 19);
             this.lowerBaseLengthtextBox.TabIndex = 8;
             this.lowerBaseLengthtextBox.TextChanged += new System.EventHandler(this.LengthTextBox_TextChanged);
             // 
+            // CircleRadio
+            // 
+            this.CircleRadio.AutoSize = true;
+            this.CircleRadio.Location = new System.Drawing.Point(205, 29);
+            this.CircleRadio.Name = "CircleRadio";
+            this.CircleRadio.Size = new System.Drawing.Size(35, 16);
+            this.CircleRadio.TabIndex = 3;
+            this.CircleRadio.TabStop = true;
+            this.CircleRadio.Text = "円";
+            this.CircleRadio.UseVisualStyleBackColor = true;
+            this.CircleRadio.CheckedChanged += new System.EventHandler(this.CircleRadio_CheckedChanged);
+            // 
             // SubForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(289, 258);
+            this.ClientSize = new System.Drawing.Size(312, 258);
             this.Controls.Add(this.lowerBaseLengthtextBox);
             this.Controls.Add(this.upperBaseLengthtextBox);
             this.Controls.Add(this.label3);
@@ -178,7 +192,7 @@
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.OkButton);
             this.Controls.Add(this.LengthTextBox);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.SideLengthLabel);
             this.Controls.Add(this.groupBox1);
             this.Name = "SubForm";
             this.Text = "図形追加";
@@ -195,7 +209,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton TriangleRadio;
         private System.Windows.Forms.RadioButton QuadRadio;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label SideLengthLabel;
         private System.Windows.Forms.TextBox LengthTextBox;
         private System.Windows.Forms.Button OkButton;
         private System.Windows.Forms.Button CancelButton;
@@ -204,6 +218,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox upperBaseLengthtextBox;
         private System.Windows.Forms.TextBox lowerBaseLengthtextBox;
+        private System.Windows.Forms.RadioButton CircleRadio;
     }
 }
 

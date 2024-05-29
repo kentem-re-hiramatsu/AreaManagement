@@ -59,6 +59,12 @@ namespace Subform
                         }
                         break;
 
+                    case ShapeNameEnum.円:
+                        {
+                            shape = new Circle(inputLength);
+                        }
+                        break;
+
                     default: break;
                 }
             }
@@ -83,7 +89,7 @@ namespace Subform
 
         private void OkButtonChange()
         {
-            OkButton.Enabled = (TrapezoidRadio.Checked && LengthTextBox.Text.Length > 0 && upperBaseLengthtextBox.Text.Length > 0 && lowerBaseLengthtextBox.Text.Length > 0) || ((TriangleRadio.Checked || QuadRadio.Checked) && LengthTextBox.Text.Length > 0);
+            OkButton.Enabled = (TrapezoidRadio.Checked && LengthTextBox.Text.Length > 0 && upperBaseLengthtextBox.Text.Length > 0 && lowerBaseLengthtextBox.Text.Length > 0) || ((TriangleRadio.Checked || QuadRadio.Checked || CircleRadio.Checked) && LengthTextBox.Text.Length > 0);
         }
 
         private void QuadRadio_CheckedChanged(object sender, EventArgs e)
@@ -93,6 +99,8 @@ namespace Subform
 
             TrapezoidRadioButtonChange();
             OkButtonChange();
+            ChangeLabelOnRadioButtonSelect();
+
             shapeName = ShapeNameEnum.四角形;
         }
 
@@ -103,6 +111,8 @@ namespace Subform
 
             TrapezoidRadioButtonChange();
             OkButtonChange();
+            ChangeLabelOnRadioButtonSelect();
+
             shapeName = ShapeNameEnum.三角形;
         }
 
@@ -113,12 +123,34 @@ namespace Subform
 
             TrapezoidRadioButtonChange();
             OkButtonChange();
+            ChangeLabelOnRadioButtonSelect();
+
             shapeName = ShapeNameEnum.台形;
+        }
+
+        private void CircleRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!CircleRadio.Checked)
+                return;
+
+            TrapezoidRadioButtonChange();
+            OkButtonChange();
+            ChangeLabelOnRadioButtonSelect();
+
+            shapeName = ShapeNameEnum.円;
         }
 
         private void LengthTextBox_TextChanged(object sender, EventArgs e)
         {
             OkButtonChange();
+        }
+
+        private void ChangeLabelOnRadioButtonSelect()
+        {
+            if (CircleRadio.Checked)
+                SideLengthLabel.Text = "半径の長さ";
+            else
+                SideLengthLabel.Text = "一辺の長さ";
         }
     }
 }
