@@ -10,8 +10,8 @@ namespace Subform
 {
     public partial class SubForm : Form
     {
-        ShapeManager shapeMana = null;
-        ShapeNameEnum shapeName;
+        private ShapeManager shapeMana = null;
+        private ShapeNameEnum shapeName;
 
         public SubForm(ShapeManager shapeMana)
         {
@@ -75,12 +75,6 @@ namespace Subform
             }
         }
 
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            OkButtonChange();
-        }
-
         private void TrapezoidRadioButtonChange()
         {
             upperBaseLengthtextBox.Enabled = TrapezoidRadio.Checked;
@@ -92,15 +86,11 @@ namespace Subform
             OkButton.Enabled = (TrapezoidRadio.Checked && LengthTextBox.Text.Length > 0 && upperBaseLengthtextBox.Text.Length > 0 && lowerBaseLengthtextBox.Text.Length > 0) || ((TriangleRadio.Checked || QuadRadio.Checked) && LengthTextBox.Text.Length > 0);
         }
 
-        private void TrapezoidRadioButtonChange(object sender, EventArgs e)
-        {
-            TrapezoidRadioButtonChange();
-            OkButtonChange();
-            shapeName = ShapeNameEnum.台形;
-        }
-
         private void QuadRadio_CheckedChanged(object sender, EventArgs e)
         {
+            if (!QuadRadio.Checked)
+                return;
+
             TrapezoidRadioButtonChange();
             OkButtonChange();
             shapeName = ShapeNameEnum.四角形;
@@ -108,9 +98,27 @@ namespace Subform
 
         private void TriangleRadio_CheckedChanged(object sender, EventArgs e)
         {
+            if (!TriangleRadio.Checked)
+                return;
+
             TrapezoidRadioButtonChange();
             OkButtonChange();
             shapeName = ShapeNameEnum.三角形;
+        }
+
+        private void TrapezoidRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!TrapezoidRadio.Checked)
+                return;
+
+            TrapezoidRadioButtonChange();
+            OkButtonChange();
+            shapeName = ShapeNameEnum.台形;
+        }
+
+        private void LengthTextBox_TextChanged(object sender, EventArgs e)
+        {
+            OkButtonChange();
         }
     }
 }

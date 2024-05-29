@@ -9,7 +9,7 @@ namespace AreaManagement1
 {
     public partial class MainForm : Form
     {
-        ShapeManager shapeMana = new ShapeManager();
+        private ShapeManager shapeMana = new ShapeManager();
 
         public MainForm()
         {
@@ -40,8 +40,7 @@ namespace AreaManagement1
             for (int i = 0; i < shapeListCount; i++)
             {
                 Shape shapeList = shapeMana.GetShape(i);
-                listView1.Items.Add(shapeList.GetShapeName().ToString()
-                    ).SubItems.Add(shapeList.GetArea().ToString());
+                listView1.Items.Add(shapeList.GetShapeName().ToString()).SubItems.Add(shapeList.GetArea().ToString());
             }
 
             var sumArea = shapeMana.GetSumArea();

@@ -28,32 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ShapeBox = new System.Windows.Forms.GroupBox();
             this.TrapezoidRadio = new System.Windows.Forms.RadioButton();
             this.TriangleRadio = new System.Windows.Forms.RadioButton();
             this.QuadRadio = new System.Windows.Forms.RadioButton();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.lowerBaseLengthtextBox = new System.Windows.Forms.TextBox();
+            this.upperBaseLengthtextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.CancelButton = new System.Windows.Forms.Button();
             this.OkButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.LengthTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            this.ShapeBox.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // ShapeBox
             // 
-            this.groupBox1.Controls.Add(this.TrapezoidRadio);
-            this.groupBox1.Controls.Add(this.TriangleRadio);
-            this.groupBox1.Controls.Add(this.QuadRadio);
-            this.groupBox1.Location = new System.Drawing.Point(39, 31);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 71);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "種類";
+            this.ShapeBox.Controls.Add(this.TrapezoidRadio);
+            this.ShapeBox.Controls.Add(this.TriangleRadio);
+            this.ShapeBox.Controls.Add(this.QuadRadio);
+            this.ShapeBox.Location = new System.Drawing.Point(39, 31);
+            this.ShapeBox.Name = "ShapeBox";
+            this.ShapeBox.Size = new System.Drawing.Size(200, 71);
+            this.ShapeBox.TabIndex = 1;
+            this.ShapeBox.TabStop = false;
+            this.ShapeBox.Text = "種類";
             // 
             // TrapezoidRadio
             // 
@@ -90,23 +90,21 @@
             this.QuadRadio.Text = "四角形";
             this.QuadRadio.UseVisualStyleBackColor = true;
             // 
-            // textBox3
+            // lowerBaseLengthtextBox
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(111, 170);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(128, 19);
-            this.textBox3.TabIndex = 16;
-            this.textBox3.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.lowerBaseLengthtextBox.Enabled = false;
+            this.lowerBaseLengthtextBox.Location = new System.Drawing.Point(111, 170);
+            this.lowerBaseLengthtextBox.Name = "lowerBaseLengthtextBox";
+            this.lowerBaseLengthtextBox.Size = new System.Drawing.Size(128, 19);
+            this.lowerBaseLengthtextBox.TabIndex = 16;
             // 
-            // textBox2
+            // upperBaseLengthtextBox
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(111, 144);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(128, 19);
-            this.textBox2.TabIndex = 15;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.upperBaseLengthtextBox.Enabled = false;
+            this.upperBaseLengthtextBox.Location = new System.Drawing.Point(111, 144);
+            this.upperBaseLengthtextBox.Name = "upperBaseLengthtextBox";
+            this.upperBaseLengthtextBox.Size = new System.Drawing.Size(128, 19);
+            this.upperBaseLengthtextBox.TabIndex = 15;
             // 
             // label3
             // 
@@ -147,13 +145,13 @@
             this.OkButton.UseVisualStyleBackColor = true;
             this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
-            // textBox1
+            // LengthTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(111, 115);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(128, 19);
-            this.textBox1.TabIndex = 10;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.LengthTextBox.Location = new System.Drawing.Point(111, 115);
+            this.LengthTextBox.Name = "LengthTextBox";
+            this.LengthTextBox.Size = new System.Drawing.Size(128, 19);
+            this.LengthTextBox.TabIndex = 10;
+            this.LengthTextBox.TextChanged += new System.EventHandler(this.LengthTextBox_TextChanged);
             // 
             // label1
             // 
@@ -169,20 +167,20 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(289, 258);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.lowerBaseLengthtextBox);
+            this.Controls.Add(this.upperBaseLengthtextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.OkButton);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.LengthTextBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.ShapeBox);
             this.Name = "ChangeFrom";
             this.Text = "図形変更画面";
             this.Load += new System.EventHandler(this.ChangeFrom_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.ShapeBox.ResumeLayout(false);
+            this.ShapeBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,17 +188,17 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox ShapeBox;
         private System.Windows.Forms.RadioButton TrapezoidRadio;
         private System.Windows.Forms.RadioButton TriangleRadio;
         private System.Windows.Forms.RadioButton QuadRadio;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox lowerBaseLengthtextBox;
+        private System.Windows.Forms.TextBox upperBaseLengthtextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Button OkButton;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox LengthTextBox;
         private System.Windows.Forms.Label label1;
     }
 }

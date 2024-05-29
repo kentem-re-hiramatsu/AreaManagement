@@ -86,7 +86,6 @@ namespace TrapezoidTest.Test
 
             var result = Math.Round(0.5 * (2 + 2) * 2, 4);
 
-
             //台形の面積の値4.0
             Assert.AreEqual(trapeziod.GetArea(), result);
         }

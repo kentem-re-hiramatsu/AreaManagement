@@ -65,7 +65,7 @@
             this.TrapezoidRadio.TabStop = true;
             this.TrapezoidRadio.Text = "台形";
             this.TrapezoidRadio.UseVisualStyleBackColor = true;
-            this.TrapezoidRadio.CheckedChanged += new System.EventHandler(this.TrapezoidRadioButtonChange);
+            this.TrapezoidRadio.CheckedChanged += new System.EventHandler(this.TrapezoidRadio_CheckedChanged);
             // 
             // TriangleRadio
             // 
@@ -107,7 +107,7 @@
             this.LengthTextBox.Name = "LengthTextBox";
             this.LengthTextBox.Size = new System.Drawing.Size(128, 19);
             this.LengthTextBox.TabIndex = 2;
-            this.LengthTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.LengthTextBox.TextChanged += new System.EventHandler(this.LengthTextBox_TextChanged);
             // 
             // OkButton
             // 
@@ -155,7 +155,7 @@
             this.upperBaseLengthtextBox.Name = "upperBaseLengthtextBox";
             this.upperBaseLengthtextBox.Size = new System.Drawing.Size(128, 19);
             this.upperBaseLengthtextBox.TabIndex = 7;
-            this.upperBaseLengthtextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.upperBaseLengthtextBox.TextChanged += new System.EventHandler(this.LengthTextBox_TextChanged);
             // 
             // lowerBaseLengthtextBox
             // 
@@ -164,7 +164,7 @@
             this.lowerBaseLengthtextBox.Name = "lowerBaseLengthtextBox";
             this.lowerBaseLengthtextBox.Size = new System.Drawing.Size(128, 19);
             this.lowerBaseLengthtextBox.TabIndex = 8;
-            this.lowerBaseLengthtextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.lowerBaseLengthtextBox.TextChanged += new System.EventHandler(this.LengthTextBox_TextChanged);
             // 
             // SubForm
             // 

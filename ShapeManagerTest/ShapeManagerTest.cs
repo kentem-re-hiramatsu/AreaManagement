@@ -3,6 +3,7 @@ using AreaManagement.Controller;
 using AreaManagement.Model;
 using AreaManagement1.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace ShapeManagerTest.Test
 {
@@ -92,7 +93,30 @@ namespace ShapeManagerTest.Test
 
             shapeListCount = shapeMana.GetShapeListCount();
             Assert.AreEqual(shapeListCount, 2);
+        }
 
+        /// <summary>
+        ///正しく面積合計が出せるか
+        /// </summary>
+        [TestMethod]
+        public void ShapeSumAreaTest()
+        {
+            Trapezoid trapeziod = new Trapezoid(1, 2, 3);
+            Triangle triangle = new Triangle(3);
+            Quadrilarea quad = new Quadrilarea(3);
+
+            shapeMana.AddShapeList(trapeziod);
+            shapeMana.AddShapeList(triangle);
+            shapeMana.AddShapeList(quad);
+
+            var sumArea = shapeMana.GetSumArea();
+
+            var trapeziodArea = Math.Round(0.5 * (2 + 3) * 1, 4);
+            var triangleArea = Math.Round(Math.Sqrt(3) / 4 * Math.Pow(3, 2), 4);
+            var quadArea = Math.Round(3.0 * 3.0, 4);
+            var shapeAreaSum = trapeziodArea + triangleArea + quadArea;
+
+            Assert.AreEqual(sumArea, shapeAreaSum);
         }
     }
 }

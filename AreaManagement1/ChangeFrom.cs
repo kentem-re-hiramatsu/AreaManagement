@@ -10,26 +10,27 @@ namespace ChangeForm
 {
     public partial class ChangeFrom : Form
     {
-        ShapeManager shapeMana;
-        int selectedIndex;
-        ShapeNameEnum shapeName;
+        private ShapeManager shapeMana;
+        private int _selectedIndex;
+        private ShapeNameEnum shapeName;
 
         public ChangeFrom(ShapeManager shapeMana, int selectedIndex)
         {
             InitializeComponent();
             this.shapeMana = shapeMana;
-            this.selectedIndex = selectedIndex;
+            _selectedIndex = selectedIndex;
         }
 
         private void ChangeFrom_Load(object sender, EventArgs e)
         {
             SetInitialValueInTextBox();
+            SetInitialChecked();
         }
 
         public void SetInitialValueInTextBox()
         {
-            var getList = shapeMana.GetShape(selectedIndex);
-            var shapeName = getList.GetShapeName();
+            var list = shapeMana.GetShape(_selectedIndex);
+            var shapeName = list.GetShapeName();
 
             double singleLength;
 
@@ -37,31 +38,28 @@ namespace ChangeForm
             {
                 case ShapeNameEnum.四角形:
                     {
-                        singleLength = ((Quadrilarea)getList).Length;
-                        textBox1.Text = singleLength.ToString();
+                        singleLength = ((Quadrilarea)list).Length;
+                        LengthTextBox.Text = singleLength.ToString();
                         this.shapeName = ShapeNameEnum.四角形;
                     }
                     break;
 
                 case ShapeNameEnum.三角形:
                     {
-                        TriangleRadio.Checked = true;
-                        singleLength = ((Triangle)getList).Length;
-                        textBox1.Text = singleLength.ToString();
+                        singleLength = ((Triangle)list).Length;
+                        LengthTextBox.Text = singleLength.ToString();
                         this.shapeName = ShapeNameEnum.三角形;
                     }
                     break;
 
                 case ShapeNameEnum.台形:
                     {
-                        TrapezoidRadio.Checked = true;
+                        upperBaseLengthtextBox.Enabled = true;
+                        lowerBaseLengthtextBox.Enabled = true;
 
-                        textBox2.Enabled = true;
-                        textBox3.Enabled = true;
-
-                        textBox1.Text = ((Trapezoid)getList).Height.ToString();
-                        textBox2.Text = ((Trapezoid)getList).UpperBaseLength.ToString();
-                        textBox3.Text = ((Trapezoid)getList).LowerBaseLength.ToString();
+                        LengthTextBox.Text = ((Trapezoid)list).Height.ToString();
+                        upperBaseLengthtextBox.Text = ((Trapezoid)list).UpperBaseLength.ToString();
+                        lowerBaseLengthtextBox.Text = ((Trapezoid)list).LowerBaseLength.ToString();
 
                         this.shapeName = ShapeNameEnum.台形;
                     }
@@ -72,22 +70,23 @@ namespace ChangeForm
             }
         }
 
+        public void SetInitialChecked()
+        {
+            TriangleRadio.Checked = shapeName == ShapeNameEnum.三角形;
+            TrapezoidRadio.Checked = shapeName == ShapeNameEnum.台形;
+        }
+
         private void CancelButton_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            OkButton.Enabled = (TrapezoidRadio.Checked && textBox1.Text.Length > 0 && textBox2.Text.Length > 0 && textBox3.Text.Length > 0) || ((TriangleRadio.Checked || QuadRadio.Checked) && textBox1.Text.Length > 0);
         }
 
         private void OkButton_Click(object sender, EventArgs e)
         {
             try
             {
-                var slectedShape = shapeMana.GetShape(selectedIndex);
-                int inputLength = int.Parse(textBox1.Text);
+                var slectedShape = shapeMana.GetShape(_selectedIndex);
+                int inputLength = int.Parse(LengthTextBox.Text);
 
                 switch (shapeName)
                 {
@@ -105,8 +104,8 @@ namespace ChangeForm
 
                     case ShapeNameEnum.台形:
                         {
-                            int inputhUpperBaseLength = int.Parse(textBox2.Text);
-                            int inputhLowerBaseLength = int.Parse(textBox3.Text);
+                            int inputhUpperBaseLength = int.Parse(upperBaseLengthtextBox.Text);
+                            int inputhLowerBaseLength = int.Parse(lowerBaseLengthtextBox.Text);
                             ((Trapezoid)slectedShape).SetLength(inputLength, inputhUpperBaseLength, inputhLowerBaseLength);
                         }
                         break;
@@ -120,6 +119,11 @@ namespace ChangeForm
             {
                 MessageBox.Show(m.Message, Consts.ERROR_MESSAGE, MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
+        }
+
+        private void LengthTextBox_TextChanged(object sender, EventArgs e)
+        {
+            OkButton.Enabled = OkButton.Enabled = (TrapezoidRadio.Checked && LengthTextBox.Text.Length > 0 && upperBaseLengthtextBox.Text.Length > 0 && lowerBaseLengthtextBox.Text.Length > 0) || ((TriangleRadio.Checked || QuadRadio.Checked) && LengthTextBox.Text.Length > 0);
         }
     }
 }
