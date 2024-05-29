@@ -36,6 +36,8 @@
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ChangeButton = new System.Windows.Forms.Button();
             this.ClearButton = new System.Windows.Forms.Button();
+            this.UpDigit = new System.Windows.Forms.Button();
+            this.DownDigit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AddButton
@@ -118,11 +120,35 @@
             this.ClearButton.UseVisualStyleBackColor = true;
             this.ClearButton.Click += new System.EventHandler(this.ClearButton_Click);
             // 
+            // UpDigit
+            // 
+            this.UpDigit.Enabled = false;
+            this.UpDigit.Location = new System.Drawing.Point(33, 244);
+            this.UpDigit.Name = "UpDigit";
+            this.UpDigit.Size = new System.Drawing.Size(37, 40);
+            this.UpDigit.TabIndex = 6;
+            this.UpDigit.Text = "＜";
+            this.UpDigit.UseVisualStyleBackColor = true;
+            this.UpDigit.Click += new System.EventHandler(this.UpDigit_Click);
+            // 
+            // DownDigit
+            // 
+            this.DownDigit.Enabled = false;
+            this.DownDigit.Location = new System.Drawing.Point(76, 244);
+            this.DownDigit.Name = "DownDigit";
+            this.DownDigit.Size = new System.Drawing.Size(37, 40);
+            this.DownDigit.TabIndex = 7;
+            this.DownDigit.Text = "＞";
+            this.DownDigit.UseVisualStyleBackColor = true;
+            this.DownDigit.Click += new System.EventHandler(this.DownDigit_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(462, 265);
+            this.ClientSize = new System.Drawing.Size(462, 293);
+            this.Controls.Add(this.DownDigit);
+            this.Controls.Add(this.UpDigit);
             this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.ChangeButton);
             this.Controls.Add(this.listView1);
@@ -147,6 +173,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.Button ChangeButton;
         private System.Windows.Forms.Button ClearButton;
+        private System.Windows.Forms.Button UpDigit;
+        private System.Windows.Forms.Button DownDigit;
     }
 }
 

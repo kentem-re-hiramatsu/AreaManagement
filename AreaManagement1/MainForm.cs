@@ -10,6 +10,7 @@ namespace AreaManagement1
     public partial class MainForm : Form
     {
         private ShapeManager shapeMana = new ShapeManager();
+        private int _digitCount = 4;
 
         public MainForm()
         {
@@ -40,12 +41,15 @@ namespace AreaManagement1
             for (int i = 0; i < shapeListCount; i++)
             {
                 Shape shapeList = shapeMana.GetShape(i);
-                listView1.Items.Add(shapeList.GetShapeName().ToString()).SubItems.Add(shapeList.GetArea().ToString());
+                listView1.Items.Add(shapeList.GetShapeName().ToString()).SubItems.Add(Math.Round(shapeList.GetArea(), _digitCount).ToString());
             }
 
-            var sumArea = shapeMana.GetSumArea();
+            var sumArea = Math.Round(shapeMana.GetSumArea(), _digitCount);
             TotalLabel.Text = $"Total： {sumArea}";
+
             ClearButton.Enabled = shapeMana.GetShapeListCount() > 0;
+            UpDigit.Enabled = _digitCount > 0;
+            DownDigit.Enabled = _digitCount < 4;
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
@@ -97,6 +101,20 @@ namespace AreaManagement1
                 shapeMana.AllRemoveShape();
                 UpdateView();
             }
+        }
+
+        private void UpDigit_Click(object sender, EventArgs e)
+        {
+            _digitCount--;
+
+            UpdateView();
+        }
+
+        private void DownDigit_Click(object sender, EventArgs e)
+        {
+            _digitCount++;
+
+            UpdateView();
         }
     }
 }
