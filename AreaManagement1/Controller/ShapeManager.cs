@@ -42,5 +42,10 @@ namespace AreaManagement.Controller
         {
             _shapeList.RemoveAt(index);
         }
+
+        public void AllRemoveShape()
+        {
+            _shapeList.Clear();
+        }
     }
 }
