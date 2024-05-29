@@ -1,5 +1,4 @@
 ﻿using AreaManagement;
-using AreaManagement1;
 using AreaManagement1.Model;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -15,85 +14,27 @@ namespace TrapezoidTest.Test
         [TestMethod]
         public void ErrorForNegativeHeightInConstructor()
         {
-            string expectedMessage = Consts.MESSAGE_PLEASENUMVER;
-            string errorMessage = null;
+            Assert.ThrowsException<Exception>(() => new Trapezoid(1, 1, 0));
+            Assert.ThrowsException<Exception>(() => new Trapezoid(1, 0, 1));
+            Assert.ThrowsException<Exception>(() => new Trapezoid(0, 1, 1));
 
-            try
-            {
-                new Trapezoid(1, 1, 0);
-            }
-            catch (Exception ex)
-            {
-                errorMessage = ex.Message;
-            }
-
-            Assert.AreEqual(expectedMessage, errorMessage);
-
-            try
-            {
-                new Trapezoid(1, 0, 1);
-            }
-            catch (Exception ex)
-            {
-                errorMessage = ex.Message;
-            }
-
-            Assert.AreEqual(expectedMessage, errorMessage);
-
-            try
-            {
-                new Trapezoid(0, 1, 1);
-            }
-            catch (Exception ex)
-            {
-                errorMessage = ex.Message;
-            }
-
-            Assert.AreEqual(expectedMessage, errorMessage);
+            Assert.ThrowsException<Exception>(() => new Trapezoid(1, 1, -1));
+            Assert.ThrowsException<Exception>(() => new Trapezoid(1, -1, 1));
+            Assert.ThrowsException<Exception>(() => new Trapezoid(-1, 1, 1));
         }
 
-        /// <summary>
-        /// 台形のSetLengthに0の値を入れた場合エラーメッセージが出るか
-        /// </summary>
         [TestMethod]
         public void ErrorForNegativeLengthInSetLowerLength()
         {
-            string expectedMessage = Consts.MESSAGE_PLEASENUMVER;
-            string errorMessage = null;
             Trapezoid trapezoid = new Trapezoid(1, 1, 1);
 
-            try
-            {
-                trapezoid.SetLength(1, 1, 0);
-            }
-            catch (Exception ex)
-            {
-                errorMessage = ex.Message;
-            }
+            Assert.ThrowsException<Exception>(() => trapezoid.SetLength(1, 1, 0));
+            Assert.ThrowsException<Exception>(() => trapezoid.SetLength(1, 0, 1));
+            Assert.ThrowsException<Exception>(() => trapezoid.SetLength(0, 1, 1));
 
-            Assert.AreEqual(expectedMessage, errorMessage);
-
-            try
-            {
-                trapezoid.SetLength(1, 0, 1);
-            }
-            catch (Exception ex)
-            {
-                errorMessage = ex.Message;
-            }
-
-            Assert.AreEqual(expectedMessage, errorMessage);
-
-            try
-            {
-                trapezoid.SetLength(0, 1, 1);
-            }
-            catch (Exception ex)
-            {
-                errorMessage = ex.Message;
-            }
-
-            Assert.AreEqual(expectedMessage, errorMessage);
+            Assert.ThrowsException<Exception>(() => trapezoid.SetLength(1, 1, -1));
+            Assert.ThrowsException<Exception>(() => trapezoid.SetLength(1, -1, 1));
+            Assert.ThrowsException<Exception>(() => trapezoid.SetLength(-1, 1, 1));
         }
 
         /// <summary>
@@ -115,8 +56,10 @@ namespace TrapezoidTest.Test
         {
             Trapezoid trapeziod = new Trapezoid(1.111, 1.111, 1.111);
 
+            var result = Math.Round(0.5 * (1.111 + 1.111) * 1.111, 4);
+
             //台形の面積の値1.23432
-            Assert.AreEqual(trapeziod.GetArea(), 1.2343);
+            Assert.AreEqual(trapeziod.GetArea(), result);
         }
 
         /// <summary>
@@ -127,8 +70,10 @@ namespace TrapezoidTest.Test
         {
             Trapezoid trapeziod = new Trapezoid(2.222, 2.222, 2.222);
 
+            var result = Math.Round(0.5 * (2.222 + 2.222) * 2.222, 4);
+
             //台形の面積の値4.93728
-            Assert.AreEqual(trapeziod.GetArea(), 4.9373);
+            Assert.AreEqual(trapeziod.GetArea(), result);
         }
 
         /// <summary>
@@ -139,8 +84,11 @@ namespace TrapezoidTest.Test
         {
             Trapezoid trapeziod = new Trapezoid(2, 2, 2);
 
+            var result = Math.Round(0.5 * (2 + 2) * 2, 4);
+
+
             //台形の面積の値4.0
-            Assert.AreEqual(trapeziod.GetArea(), 4);
+            Assert.AreEqual(trapeziod.GetArea(), result);
         }
 
         /// <summary>
@@ -150,7 +98,7 @@ namespace TrapezoidTest.Test
         public void ReturnUpperLengthForValidTriangle()
         {
             Trapezoid trapeziod = new Trapezoid(1, 2, 3);
-            var length = trapeziod.UpperBaseLength;
+            var length = trapeziod.Height;
 
             Assert.AreEqual(length, 1);
         }
@@ -162,7 +110,7 @@ namespace TrapezoidTest.Test
         public void ReturnLowerLengthForValidTriangle()
         {
             Trapezoid trapeziod = new Trapezoid(1, 2, 3);
-            var length = trapeziod.LowerBaseLength;
+            var length = trapeziod.UpperBaseLength;
 
             Assert.AreEqual(length, 2);
         }
@@ -174,7 +122,7 @@ namespace TrapezoidTest.Test
         public void ReturnHeightLengthForValidTriangle()
         {
             Trapezoid trapeziod = new Trapezoid(1, 2, 3);
-            var length = trapeziod.Height;
+            var length = trapeziod.LowerBaseLength;
 
             Assert.AreEqual(length, 3);
         }

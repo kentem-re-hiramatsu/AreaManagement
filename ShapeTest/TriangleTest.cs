@@ -1,6 +1,5 @@
 ﻿using AreaManagement;
 using AreaManagement.Model;
-using AreaManagement1;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
@@ -15,19 +14,8 @@ namespace TriangleTest.Test
         [TestMethod]
         public void ErrorForNegativeSideLengthInConstructor()
         {
-            string expectedMessage = Consts.MESSAGE_PLEASENUMVER;
-            string errorMessage = null;
-
-            try
-            {
-                new Triangle(0);
-            }
-            catch (Exception ex)
-            {
-                errorMessage = ex.Message;
-            }
-
-            Assert.AreEqual(expectedMessage, errorMessage);
+            Assert.ThrowsException<Exception>(() => new Triangle(0));
+            Assert.ThrowsException<Exception>(() => new Triangle(-1));
         }
 
         /// <summary>
@@ -36,20 +24,10 @@ namespace TriangleTest.Test
         [TestMethod]
         public void ErrorForNegativeLengthInSetLength()
         {
-            string expectedMessage = Consts.MESSAGE_PLEASENUMVER;
-            string errorMessage = null;
             Triangle triangle = new Triangle(1);
 
-            try
-            {
-                triangle.Length = 0;
-            }
-            catch (Exception ex)
-            {
-                errorMessage = ex.Message;
-            }
-
-            Assert.AreEqual(expectedMessage, errorMessage);
+            Assert.ThrowsException<Exception>(() => triangle.Length = 0);
+            Assert.ThrowsException<Exception>(() => triangle.Length = -1);
         }
 
         /// <summary>
@@ -70,9 +48,10 @@ namespace TriangleTest.Test
         public void AreaRoundedDownTo4DecimalPlaces_ForValidTriangle()
         {
             Triangle triangle = new Triangle(4);
+            var result = Math.Round(Math.Sqrt(3) / 4 * Math.Pow(4, 2), 4);
 
-            //三角形の面積は3.89711
-            Assert.AreEqual(triangle.GetArea(), 6.9282);
+            //三角形の面積は6.9282
+            Assert.AreEqual(triangle.GetArea(), result);
         }
 
         /// <summary>
@@ -82,9 +61,10 @@ namespace TriangleTest.Test
         public void AreaRoundedUpTo4DecimalPlaces_ForValidTriangle()
         {
             Triangle triangle = new Triangle(4.7);
+            var result = Math.Round(Math.Sqrt(3) / 4 * Math.Pow(4.7, 2), 4);
 
             //三角形の面積は9.56525
-            Assert.AreEqual(triangle.GetArea(), 9.5653);
+            Assert.AreEqual(triangle.GetArea(), result);
         }
 
         /// <summary>
@@ -94,9 +74,10 @@ namespace TriangleTest.Test
         public void TriangleAreaWithValidSides_ReturnsTriangleArea()
         {
             Triangle triangle = new Triangle(5);
+            var result = Math.Round(Math.Sqrt(3) / 4 * Math.Pow(5, 2), 4);
 
             //三角形の面積は10.82531
-            Assert.AreEqual(triangle.GetArea(), 10.8253);
+            Assert.AreEqual(triangle.GetArea(), result);
         }
 
         /// <summary>
