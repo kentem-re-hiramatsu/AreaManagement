@@ -52,6 +52,19 @@ namespace ShapeManagerTest.Test
         }
 
         /// <summary>
+        /// 正しく円のGetShapeができているか
+        /// </summary>
+        [TestMethod]
+        public void CircleGetShapeTest()
+        {
+            Circle circle = new Circle(1);
+            shapeMana.AddShapeList(circle);
+            var shape = shapeMana.GetShape(0);
+
+            Assert.AreEqual(shape.GetShapeName(), ShapeNameEnum.円);
+        }
+
+        /// <summary>
         /// 正しくShapeListに複数図形が追加されるか
         /// </summary>
         [TestMethod]

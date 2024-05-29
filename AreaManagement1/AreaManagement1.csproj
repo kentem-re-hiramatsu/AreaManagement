@@ -60,6 +60,7 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Circle.cs" />
     <Compile Include="Model\Quadrilareal.cs" />
     <Compile Include="Model\Shape.cs" />
     <Compile Include="Model\Trapezoid.cs" />
