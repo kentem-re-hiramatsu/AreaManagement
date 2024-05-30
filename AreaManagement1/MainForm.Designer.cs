@@ -31,7 +31,7 @@
             this.AddButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.TotalLabel = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.ShapeListView = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ChangeButton = new System.Windows.Forms.Button();
@@ -71,20 +71,20 @@
             this.TotalLabel.TabIndex = 2;
             this.TotalLabel.Text = "Total：";
             // 
-            // listView1
+            // ShapeListView
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ShapeListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
-            this.listView1.FullRowSelect = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(33, 21);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(227, 217);
-            this.listView1.TabIndex = 3;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.ShapeListView.FullRowSelect = true;
+            this.ShapeListView.HideSelection = false;
+            this.ShapeListView.Location = new System.Drawing.Point(33, 21);
+            this.ShapeListView.Name = "ShapeListView";
+            this.ShapeListView.Size = new System.Drawing.Size(227, 217);
+            this.ShapeListView.TabIndex = 3;
+            this.ShapeListView.UseCompatibleStateImageBehavior = false;
+            this.ShapeListView.View = System.Windows.Forms.View.Details;
+            this.ShapeListView.SelectedIndexChanged += new System.EventHandler(this.ShapeListView_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -151,7 +151,7 @@
             this.Controls.Add(this.UpDigit);
             this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.ChangeButton);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.ShapeListView);
             this.Controls.Add(this.TotalLabel);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.AddButton);
@@ -169,7 +169,7 @@
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.Label TotalLabel;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView ShapeListView;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.Button ChangeButton;

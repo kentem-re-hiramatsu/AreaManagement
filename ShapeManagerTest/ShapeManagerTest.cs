@@ -125,7 +125,7 @@ namespace ShapeManagerTest.Test
             var shapeListCount = shapeMana.GetShapeListCount();
             Assert.AreEqual(shapeListCount, 3);
 
-            shapeMana.AllRemoveShape();
+            shapeMana.ClearShape();
 
             shapeListCount = shapeMana.GetShapeListCount();
             Assert.AreEqual(shapeListCount, 0);
