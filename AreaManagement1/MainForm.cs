@@ -1,8 +1,13 @@
-﻿using AreaManagement.Controller;
+﻿using AreaManagement;
+using AreaManagement.Controller;
 using AreaManagement.Model;
+using AreaManagement1.Model;
 using ChangeForm;
 using Subform;
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text;
 using System.Windows.Forms;
 
 namespace AreaManagement1
@@ -11,6 +16,7 @@ namespace AreaManagement1
     {
         private ShapeManager shapeMana = new ShapeManager();
         private int _digitCount = 4;
+        private string _shapeDataFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../../Data/ShapeName.txt");
 
         public MainForm()
         {
@@ -19,6 +25,45 @@ namespace AreaManagement1
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            Shape shape = null;
+            List<string> shapeList = new List<string>();
+
+            using (StreamReader streamReader = new StreamReader(_shapeDataFilePath, Encoding.UTF8))
+            {
+                while (streamReader.EndOfStream == false)
+                {
+                    string line = streamReader.ReadLine();
+                    shapeList.Add(line);
+                }
+            }
+
+            var shapeCount = shapeList.Count;
+
+            for (int i = 0; i < shapeCount; i++)
+            {
+                string[] shapeData = shapeList[i].Split(',');
+
+                switch (double.Parse(shapeData[0]))
+                {
+                    case (int)ShapeNameEnum.四角形:
+                        shape = new Quadrilarea(double.Parse(shapeData[1]));
+                        break;
+
+                    case (int)ShapeNameEnum.三角形:
+                        shape = new Triangle(double.Parse(shapeData[1]));
+                        break;
+
+                    case (int)ShapeNameEnum.台形:
+                        shape = new Trapezoid(double.Parse(shapeData[1]), double.Parse(shapeData[2]), double.Parse(shapeData[3]));
+                        break;
+
+                    case (int)ShapeNameEnum.円:
+                        shape = new Circle(double.Parse(shapeData[1]));
+                        break;
+                }
+                shapeMana.AddShapeList(shape);
+            }
+            UpdateView();
         }
 
         private void AddButton_Click(object sender, EventArgs e)
@@ -115,6 +160,71 @@ namespace AreaManagement1
             _digitCount++;
 
             UpdateView();
+        }
+
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var shapeCount = shapeMana.GetShapeListCount();
+            var shapeDataList = new List<Shape>();
+            string shapeName = null;
+            double sideLength = 0, upperBaseLength = 0, lowerBaseLength = 0;
+
+            for (int i = 0; i < shapeCount; i++)
+            {
+                shapeDataList.Add(shapeMana.GetShape(i));
+
+                switch (shapeDataList[i].GetShapeName())
+                {
+                    case ShapeNameEnum.四角形:
+                        shapeName = ((int)ShapeNameEnum.四角形).ToString();
+                        sideLength = ((Quadrilarea)shapeDataList[i]).Length;
+                        break;
+
+                    case ShapeNameEnum.三角形:
+                        shapeName = ((int)ShapeNameEnum.三角形).ToString();
+                        sideLength = ((Triangle)shapeDataList[i]).Length;
+                        break;
+
+                    case ShapeNameEnum.台形:
+                        shapeName = ((int)ShapeNameEnum.台形).ToString();
+                        sideLength = ((Trapezoid)shapeDataList[i]).Height;
+                        upperBaseLength = ((Trapezoid)shapeDataList[i]).UpperBaseLength;
+                        lowerBaseLength = ((Trapezoid)shapeDataList[i]).LowerBaseLength;
+                        break;
+
+                    case ShapeNameEnum.円:
+                        shapeName = ((int)ShapeNameEnum.円).ToString();
+                        sideLength = ((Circle)shapeDataList[i]).Length;
+                        break;
+                }
+
+                if (i == 0)
+                {
+                    if (!(shapeDataList[i].GetShapeName() == ShapeNameEnum.台形))
+                    {
+                        File.WriteAllText(_shapeDataFilePath, $"{shapeName},{sideLength}" + Environment.NewLine);
+                    }
+                    else
+                    {
+                        File.WriteAllText(_shapeDataFilePath, $"{shapeName},{sideLength},{upperBaseLength},{lowerBaseLength}" + Environment.NewLine);
+                    }
+                }
+                else
+                {
+                    if (!(shapeDataList[i].GetShapeName() == ShapeNameEnum.台形))
+                    {
+                        File.AppendAllText(_shapeDataFilePath, $"{shapeName},{sideLength}" + Environment.NewLine);
+                    }
+                    else
+                    {
+                        File.AppendAllText(_shapeDataFilePath, $"{shapeName},{sideLength},{upperBaseLength},{lowerBaseLength}" + Environment.NewLine);
+                    }
+                }
+            }
+            if (shapeCount == 0)
+            {
+                File.WriteAllText(_shapeDataFilePath, "");
+            }
         }
     }
 }
